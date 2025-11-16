@@ -1,23 +1,25 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import SiteHeader from '../components/layout/SiteHeader.astro';
-import SiteFooter from '../components/layout/SiteFooter.astro';
-import Hero from '../components/sections/Hero.astro';
-import AsyncInterface from '../components/sections/AsyncInterface.astro';
-import LayeredModel from '../components/sections/LayeredModel.astro';
-import HappenFramework from '../components/sections/HappenFramework.astro';
-import SafetyStack from '../components/sections/SafetyStack.astro';
-import WorkbenchSection from '../components/sections/WorkbenchSection.astro';
-import StateGraphSection from '../components/sections/StateGraphSection.astro';
-import ImplementationRoadmap from '../components/sections/ImplementationRoadmap.astro';
-import CTASection from '../components/sections/CTASection.astro';
+import Layout from "../layouts/Layout.astro";
+import SiteHeader from "../components/layout/SiteHeader.astro";
+import SiteFooter from "../components/layout/SiteFooter.astro";
+import Hero from "../components/sections/Hero.astro";
+import AsyncInterface from "../components/sections/AsyncInterface.astro";
+import LayeredModel from "../components/sections/LayeredModel.astro";
+import HappenFramework from "../components/sections/HappenFramework.astro";
+import SafetyStack from "../components/sections/SafetyStack.astro";
+import WorkbenchSection from "../components/sections/WorkbenchSection.astro";
+import StateGraphSection from "../components/sections/StateGraphSection.astro";
+import ImplementationRoadmap from "../components/sections/ImplementationRoadmap.astro";
+import CTASection from "../components/sections/CTASection.astro";
 ---
 
 <Layout
 	title="Guru – Agentic Harness & Sovereign OS"
 	description="Guru is an agentic harness and sovereign operating system for agent swarms: permissionless innovation for AI, absolute governance for humans."
 >
-	<div class="relative min-h-screen bg-[hsl(var(--background))] text-[hsl(var(--foreground))]">
+	<div
+		class="relative min-h-screen bg-[hsl(var(--background))] text-[hsl(var(--foreground))]"
+	>
 		<SiteHeader />
 		<main class="space-y-0">
 			<Hero />
@@ -27,7 +29,6 @@ import CTASection from '../components/sections/CTASection.astro';
 			<SafetyStack />
 			<WorkbenchSection />
 			<StateGraphSection />
-			<ImplementationRoadmap />
 			<CTASection />
 		</main>
 		<SiteFooter />

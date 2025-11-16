@@ -1,43 +1,56 @@
 ---
 const metrics = [
 	{
-		value: '∞',
-		label: 'Ephemeral agents routed per minute',
+		value: "∞",
+		label: "Ephemeral agents routed per minute",
 	},
 	{
-		value: '0',
-		label: 'Ungoverned shell paths in production',
+		value: "0",
+		label: "Ungoverned shell paths in production",
 	},
 	{
-		value: '100%',
-		label: 'Events observable + replayable',
+		value: "100%",
+		label: "Events observable + replayable",
 	},
 ];
 ---
 
-<section id="product" class="relative overflow-hidden border-b border-[hsl(var(--border))]/70 bg-[hsl(var(--background))]">
+<section
+	id="product"
+	class="relative overflow-hidden border-b border-[hsl(var(--border))]/70 bg-[hsl(var(--background))]"
+>
 	<span class="halo -top-20 hidden lg:block" aria-hidden="true"></span>
 	<div
 		class="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr,0.95fr] lg:gap-16 lg:px-8 lg:py-24"
 	>
 		<div class="space-y-8">
-			<div class="inline-flex items-center gap-2 rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--card))] px-3 py-1 text-[11px] font-medium text-[hsl(var(--muted-foreground))]">
-				<span class="inline-flex h-1.5 w-1.5 rounded-full bg-[hsl(var(--primary))]"></span>
-				Version 2.0 · Agentic evolution
-				<span class="hidden rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5 sm:inline-flex"
+			<div
+				class="inline-flex items-center gap-2 rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--card))] px-3 py-1 text-[11px] font-medium text-[hsl(var(--muted-foreground))]"
+			>
+				<span
+					class="inline-flex h-1.5 w-1.5 rounded-full bg-[hsl(var(--primary))]"
+				></span>
+				v1.0 · Agentic evolution
+				<span
+					class="hidden rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5 sm:inline-flex"
 					>Permissionless innovation · Absolute governance</span
 				>
 			</div>
 
 			<div class="space-y-4">
-				<h1 class="text-3xl font-semibold leading-tight tracking-tight text-[hsl(var(--foreground))] sm:text-4xl lg:text-5xl">
+				<h1
+					class="text-3xl font-semibold leading-tight tracking-tight text-[hsl(var(--foreground))] sm:text-4xl lg:text-5xl"
+				>
 					Hang back, dispatch swarms, review asynchronously.
 				</h1>
-				<p class="max-w-xl text-sm leading-relaxed text-[hsl(var(--muted-foreground))]">
-					Guru is the Agentic Harness that treats agents like teammates, not chat bubbles.
-					Launch work through a command bar, let swarms run inside the Happen runtime, then
-					review Shadow Mode diffs, policy holds, and clarifications in an Inbox that behaves
-					more like Notion comments than a typing indicator.
+				<p
+					class="max-w-xl text-sm leading-relaxed text-[hsl(var(--muted-foreground))]"
+				>
+					Guru is the Agentic Harness that treats agents like teammates, not
+					chat bubbles. Launch work through a command bar, let swarms run inside
+					the Happen runtime, then review Shadow Mode diffs, policy holds, and
+					clarifications in an Inbox that behaves more like Notion comments than
+					a typing indicator.
 				</p>
 			</div>
 
@@ -55,105 +68,182 @@ const metrics = [
 						View mission control
 					</a>
 				</div>
-				<div class="flex items-center gap-1 text-[11px] text-[hsl(var(--muted-foreground))]">
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-[hsl(var(--primary))]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-						<path d="M9 12.75L11.25 15L15 9.75" stroke-linecap="round" stroke-linejoin="round"></path>
+				<div
+					class="flex items-center gap-1 text-[11px] text-[hsl(var(--muted-foreground))]"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-3.5 w-3.5 text-[hsl(var(--primary))]"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="1.5"
+					>
+						<path
+							d="M9 12.75L11.25 15L15 9.75"
+							stroke-linecap="round"
+							stroke-linejoin="round"></path>
 						<circle cx="12" cy="12" r="9"></circle>
 					</svg>
 					Async-first inbox + optional sync CLI
 				</div>
 			</div>
 
-			<div class="grid gap-4 text-[11px] text-[hsl(var(--muted-foreground))] sm:grid-cols-3">
-				{metrics.map((metric) => (
-					<div class="rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-4">
-						<div class="text-2xl font-semibold text-[hsl(var(--foreground))]">{metric.value}</div>
-						<p>{metric.label}</p>
-					</div>
-				))}
+			<div
+				class="grid gap-4 text-[11px] text-[hsl(var(--muted-foreground))] sm:grid-cols-3"
+			>
+				{
+					metrics.map((metric) => (
+						<div class="rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-4">
+							<div class="text-2xl font-semibold text-[hsl(var(--foreground))]">
+								{metric.value}
+							</div>
+							<p>{metric.label}</p>
+						</div>
+					))
+				}
 			</div>
 		</div>
 
 		<div class="space-y-4">
-			<div class="rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))]/95 p-4 shadow-2xl shadow-[rgba(0,0,0,0.15)]">
-				<div class="mb-3 flex items-center justify-between text-[11px] text-[hsl(var(--muted-foreground))]">
+			<div
+				class="rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))]/95 p-4 shadow-2xl shadow-[rgba(0,0,0,0.15)]"
+			>
+				<div
+					class="mb-3 flex items-center justify-between text-[11px] text-[hsl(var(--muted-foreground))]"
+				>
 					<div class="flex items-center gap-2">
 						<span class="flex w-full gap-1">
-							<span class="h-2 w-2 rounded-full bg-[hsl(var(--destructive))]/70"></span>
+							<span class="h-2 w-2 rounded-full bg-[hsl(var(--destructive))]/70"
+							></span>
 							<span class="h-2 w-2 rounded-full bg-[hsl(var(--accent))]"></span>
 							<span class="h-2 w-2 rounded-full bg-[hsl(var(--muted))]"></span>
 						</span>
-						<span class="rounded-full border border-[hsl(var(--border))] px-2 py-0.5 text-[10px]">Mission Control · live</span>
+						<span
+							class="rounded-full border border-[hsl(var(--border))] min-w-[120px] px-2 py-0.5 text-[10px]"
+							>Mission Control · live</span
+						>
 					</div>
 					<span>Shadow Mode queue · 4 items</span>
 				</div>
 
 				<div class="grid gap-3 md:grid-cols-[1.1fr,0.9fr]">
-					<div class="rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-3 text-[11px] text-[hsl(var(--muted-foreground))]">
-						<div class="mb-2 flex items-center justify-between text-[hsl(var(--foreground))]">
+					<div
+						class="rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-3 text-[11px] text-[hsl(var(--muted-foreground))]"
+					>
+						<div
+							class="mb-2 flex items-center justify-between text-[hsl(var(--foreground))]"
+						>
 							<span class="font-medium">Command bar</span>
-							<span class="rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5 text-[9px]">⌘ + K</span>
+							<span
+								class="rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5 text-[9px]"
+								>⌘ + K</span
+							>
 						</div>
 						<ul class="space-y-1.5 font-mono">
-							<li class="flex items-center justify-between rounded-lg border border-[hsl(var(--border))] px-2 py-1">
+							<li
+								class="flex items-center justify-between rounded-lg border border-[hsl(var(--border))] px-2 py-1"
+							>
 								<span>agent.refactor repo://payments</span>
-								<span class="text-[9px] text-[hsl(var(--muted-foreground))]">swarm • live</span>
+								<span class="text-[9px] text-[hsl(var(--muted-foreground))]"
+									>swarm • live</span
+								>
 							</li>
-							<li class="flex items-center justify-between rounded-lg border border-[hsl(var(--border))] px-2 py-1">
+							<li
+								class="flex items-center justify-between rounded-lg border border-[hsl(var(--border))] px-2 py-1"
+							>
 								<span>agent.workbench spawn lint-fix</span>
-								<span class="text-[9px] text-[hsl(var(--muted-foreground))]">sandbox</span>
+								<span class="text-[9px] text-[hsl(var(--muted-foreground))]"
+									>sandbox</span
+								>
 							</li>
-							<li class="flex items-center justify-between rounded-lg border border-[hsl(var(--border))] px-2 py-1">
+							<li
+								class="flex items-center justify-between rounded-lg border border-[hsl(var(--border))] px-2 py-1"
+							>
 								<span>agent.fs.diff stage</span>
-								<span class="text-[9px] text-[hsl(var(--muted-foreground))]">shadow</span>
+								<span class="text-[9px] text-[hsl(var(--muted-foreground))]"
+									>shadow</span
+								>
 							</li>
 						</ul>
 					</div>
 
 					<div class="space-y-3 text-[10px]">
-						<div class="rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-3">
+						<div
+							class="rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-3"
+						>
 							<div class="mb-2 flex items-center justify-between text-[11px]">
-								<span class="font-semibold text-[hsl(var(--foreground))]">Mission Inbox</span>
-								<span class="rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5 text-[9px]">async</span>
+								<span class="font-semibold text-[hsl(var(--foreground))]"
+									>Mission Inbox</span
+								>
+								<span
+									class="rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5 text-[9px]"
+									>async</span
+								>
 							</div>
 							<ul class="space-y-1.5">
-								<li class="flex items-center justify-between rounded-lg border border-[hsl(var(--border))]/80 px-2 py-1.5">
+								<li
+									class="flex items-center justify-between rounded-lg border border-[hsl(var(--border))]/80 px-2 py-1.5"
+								>
 									<div>
-										<p class="font-medium text-[hsl(var(--foreground))]">Shadow write: src/happen/node-factory.ts</p>
-										<span class="text-[hsl(var(--muted-foreground))]">runtime-42 • awaiting approval</span>
+										<p class="font-medium text-[hsl(var(--foreground))]">
+											Shadow write: src/happen/node-factory.ts
+										</p>
+										<span class="text-[hsl(var(--muted-foreground))]"
+											>runtime-42 • awaiting approval</span
+										>
 									</div>
-									<button class="rounded-full bg-[hsl(var(--primary))]/15 px-2 py-1 text-[9px] font-semibold text-[hsl(var(--primary))]">
+									<button
+										class="rounded-full bg-[hsl(var(--primary))]/15 px-2 py-1 text-[9px] font-semibold text-[hsl(var(--primary))]"
+									>
 										Approve
 									</button>
 								</li>
-								<li class="flex items-center justify-between rounded-lg border border-[hsl(var(--border))]/80 px-2 py-1.5">
+								<li
+									class="flex items-center justify-between rounded-lg border border-[hsl(var(--border))]/80 px-2 py-1.5"
+								>
 									<div>
-										<p class="font-medium text-[hsl(var(--foreground))]">Policy check: egress → api.stripe.com</p>
-										<span class="text-[hsl(var(--muted-foreground))]">policy/prod-guardrail</span>
+										<p class="font-medium text-[hsl(var(--foreground))]">
+											Policy check: egress → api.stripe.com
+										</p>
+										<span class="text-[hsl(var(--muted-foreground))]"
+											>policy/prod-guardrail</span
+										>
 									</div>
-									<button class="rounded-full border border-[hsl(var(--border))] px-2 py-1 text-[9px] font-semibold">
+									<button
+										class="rounded-full border border-[hsl(var(--border))] px-2 py-1 text-[9px] font-semibold"
+									>
 										Review
 									</button>
 								</li>
 							</ul>
 						</div>
 
-						<div class="rounded-2xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] p-3">
-							<div class="mb-1 flex items-center justify-between text-[11px] text-[hsl(var(--muted-foreground))]">
+						<div
+							class="rounded-2xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] p-3"
+						>
+							<div
+								class="mb-1 flex items-center justify-between text-[11px] text-[hsl(var(--muted-foreground))]"
+							>
 								<span>Shadow diff · pending</span>
 								<span>Diff view</span>
 							</div>
-							<pre class="max-h-28 overflow-hidden rounded-xl bg-[hsl(var(--background))] p-2 text-[9px] text-[hsl(var(--muted-foreground))]">agent: runtime-42
+							<pre
+								class="max-h-28 overflow-hidden rounded-xl bg-[hsl(var(--background))] p-2 text-[9px] text-[hsl(var(--muted-foreground))]">agent: runtime-42
 action: fs.write.shadow
 path: src/services/shadow-file-system.ts
 diff:
 + stageWrite(path, payload)
 + calculateRiskScore(change)</pre>
 							<div class="mt-2 flex gap-2 text-[9px]">
-								<button class="flex-1 rounded-lg border border-[hsl(var(--border))] py-1 font-semibold text-[hsl(var(--muted-foreground))]">
+								<button
+									class="flex-1 rounded-lg border border-[hsl(var(--border))] py-1 font-semibold text-[hsl(var(--muted-foreground))]"
+								>
 									Decline
 								</button>
-								<button class="flex-1 rounded-lg bg-[hsl(var(--primary))] py-1 font-semibold text-[hsl(var(--primary-foreground))]">
+								<button
+									class="flex-1 rounded-lg bg-[hsl(var(--primary))] py-1 font-semibold text-[hsl(var(--primary-foreground))]"
+								>
 									Apply & execute
 								</button>
 							</div>
@@ -162,22 +252,39 @@ diff:
 				</div>
 			</div>
 
-			<div class="rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-4 text-[11px]">
-				<div class="mb-2 flex items-center gap-2 text-[hsl(var(--muted-foreground))]">
-					<span class="h-1.5 w-1.5 rounded-full bg-[hsl(var(--primary))]"></span>
+			<div
+				class="rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-4 text-[11px]"
+			>
+				<div
+					class="mb-2 flex items-center gap-2 text-[hsl(var(--muted-foreground))]"
+				>
+					<span class="h-1.5 w-1.5 rounded-full bg-[hsl(var(--primary))]"
+					></span>
 					Real-time stream (Happen events)
 				</div>
 				<ul class="space-y-1.5 text-[hsl(var(--muted-foreground))]">
-					<li class="flex items-center justify-between rounded-xl border border-[hsl(var(--border))]/70 px-3 py-1.5">
-						<span class="font-medium text-[hsl(var(--foreground))]">00:00.213 · event: swarm.plan</span>
+					<li
+						class="flex items-center justify-between rounded-xl border border-[hsl(var(--border))]/70 px-3 py-1.5"
+					>
+						<span class="font-medium text-[hsl(var(--foreground))]"
+							>00:00.213 · event: swarm.plan</span
+						>
 						<span>agent=planner-1</span>
 					</li>
-					<li class="flex items-center justify-between rounded-xl border border-[hsl(var(--border))]/70 px-3 py-1.5">
-						<span class="font-medium text-[hsl(var(--foreground))]">00:00.731 · event: workbench.spawn</span>
+					<li
+						class="flex items-center justify-between rounded-xl border border-[hsl(var(--border))]/70 px-3 py-1.5"
+					>
+						<span class="font-medium text-[hsl(var(--foreground))]"
+							>00:00.731 · event: workbench.spawn</span
+						>
 						<span>agent=wb-2</span>
 					</li>
-					<li class="flex items-center justify-between rounded-xl border border-[hsl(var(--border))]/70 px-3 py-1.5">
-						<span class="font-medium text-[hsl(var(--foreground))]">00:01.476 · event: liner.review</span>
+					<li
+						class="flex items-center justify-between rounded-xl border border-[hsl(var(--border))]/70 px-3 py-1.5"
+					>
+						<span class="font-medium text-[hsl(var(--foreground))]"
+							>00:01.476 · event: liner.review</span
+						>
 						<span>policy=prod-guardrail</span>
 					</li>
 				</ul>
@@ -185,4 +292,3 @@ diff:
 		</div>
 	</div>
 </section>
-
