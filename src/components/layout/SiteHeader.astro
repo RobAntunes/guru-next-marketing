@@ -1,0 +1,58 @@
+---
+const navLinks = [
+	{ href: '#product', label: 'Product' },
+	{ href: '#async', label: 'Async UX' },
+	{ href: '#architecture', label: 'Architecture' },
+	{ href: '#safety', label: 'Governance' },
+	{ href: '#workbench', label: 'Workbench' },
+	{ href: '#state-graph', label: 'State graph' },
+];
+---
+
+<header
+	class="sticky top-0 z-50 border-b border-[hsl(var(--border))]/70 backdrop-blur-xl"
+	style="background: hsl(var(--background) / 0.92);"
+>
+	<div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+		<a href="/" class="flex items-center gap-2">
+			<span
+				class="flex h-9 w-9 items-center justify-center rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] text-sm font-semibold tracking-tight text-[hsl(var(--primary))]"
+				>G</span
+			>
+			<div class="flex flex-col leading-tight">
+				<span class="text-sm font-semibold">Guru</span>
+				<span class="text-[11px] font-medium text-[hsl(var(--muted-foreground))]"
+					>Agentic Harness</span
+				>
+			</div>
+		</a>
+
+		<nav class="hidden items-center gap-4 text-xs font-medium text-[hsl(var(--muted-foreground))] md:flex">
+			{navLinks.map((link) => (
+				<a
+					href={link.href}
+					class="rounded-full px-3 py-1 transition-colors hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--foreground))]"
+					>{link.label}</a
+				>
+			))}
+		</nav>
+
+		<div class="flex items-center gap-2 text-xs font-medium">
+			<a
+				href="#docs"
+				class="hidden items-center rounded-full border border-[hsl(var(--border))] px-3 py-1.5 text-[hsl(var(--muted-foreground))] transition-colors hover:border-[hsl(var(--primary))]/50 hover:text-[hsl(var(--foreground))] sm:inline-flex"
+				>View docs</a
+			>
+			<a
+				href="#cta"
+				class="inline-flex items-center gap-1.5 rounded-full bg-[hsl(var(--primary))] px-4 py-1.5 text-[hsl(var(--primary-foreground))] shadow-sm shadow-[rgba(0,0,0,0.12)] transition hover:bg-[hsl(var(--primary))]/90"
+			>
+				Request access
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+					<path d="M7 17L17 7M8 7H17V16" stroke-linecap="round" stroke-linejoin="round"></path>
+				</svg>
+			</a>
+		</div>
+	</div>
+</header>
+

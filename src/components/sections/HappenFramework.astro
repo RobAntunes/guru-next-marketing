@@ -1,0 +1,296 @@
+---
+const overview = [
+	{
+		title: 'Minimal primitives, maximal control',
+		description:
+			'Happen boils orchestration down to Nodes + Events. Programs become “programs of programs,” so you compose autonomous behaviors without layering more infrastructure.',
+	},
+	{
+		title: 'Unified event space',
+		description:
+			'State, context, and views share the same continuum, which makes observability, auth, retries, and dependency management part of the base fabric.',
+	},
+	{
+		title: 'Governance as code',
+		description:
+			'Liners wrap Wrappers at runtime. Shadow Mode, Telepathy, Budget, Policy, and your custom rules are middleware functions that ship with the repo.',
+	},
+];
+
+const meta = {
+	nodeVersion: 'Node v25.2.0',
+	platform: 'darwin · arm64',
+	totalOperations: '694,000 operations',
+	totalDuration: '1.35s total run',
+};
+
+const summaryBullets = [
+	'Fastest ops: Standard Object Access (6.67M ops/sec), Object Creation (5.26M), Buffer Pool Acquire/Release (5M).',
+	'P50 latency stays at 0.000–0.002ms for zero-allocation paths and causality event creation.',
+	'Benchmark suite warms caches (up to 10k iterations) and still finishes the entire matrix in 1.35 seconds.',
+];
+
+const eventProcessing = [
+	{
+		name: 'Standard Event Processing',
+		throughput: '1,000,000 ops/sec',
+		duration: '10ms',
+		latency: 'P95 0.001ms',
+		mem: '0.20 KB/op',
+	},
+	{
+		name: 'Zero-Allocation Event Processing',
+		throughput: '588,235 ops/sec',
+		duration: '17ms',
+		latency: 'P95 0.002ms',
+		mem: '0.37 KB/op',
+	},
+	{
+		name: 'Event Creation (Causality)',
+		throughput: '2,272,727 ops/sec',
+		duration: '22ms',
+		latency: 'P95 <0.001ms',
+		mem: '0.03 KB/op',
+	},
+	{
+		name: 'Pattern Matching · Exact',
+		throughput: '1,428,571 ops/sec',
+		duration: '7ms',
+		latency: 'P95 0.001ms',
+		mem: '0.50 KB/op',
+	},
+	{
+		name: 'Pure Buffer Write (Zero-Allocation)',
+		throughput: '2,500,000 ops/sec',
+		duration: '40ms',
+		latency: 'P95 0.001ms',
+		mem: '0.16 KB/op',
+	},
+	{
+		name: 'Pure Buffer Read (Zero-Allocation)',
+		throughput: '1,960,784 ops/sec',
+		duration: '51ms',
+		latency: 'P95 0.001ms',
+		mem: '0.23 KB/op',
+	},
+	{
+		name: 'Buffer Pool · Acquire/Release',
+		throughput: '5,000,000 ops/sec',
+		duration: '20ms',
+		latency: 'P95 <0.001ms',
+		mem: '0.30 KB/op',
+	},
+];
+
+const stateAndViews = [
+	{
+		name: 'State Set (Simple)',
+		throughput: '4,444 ops/sec',
+		duration: '225ms',
+		latency: 'P95 0.245ms',
+		mem: '5.34 KB/op',
+	},
+	{
+		name: 'State Get (Simple)',
+		throughput: '9,050 ops/sec',
+		duration: '221ms',
+		latency: 'P95 0.120ms',
+		mem: '5.65 KB/op',
+	},
+	{
+		name: 'State Get + Transform',
+		throughput: '9,050 ops/sec',
+		duration: '221ms',
+		latency: 'P95 0.122ms',
+		mem: '5.37 KB/op',
+	},
+	{
+		name: 'Views · Single Node',
+		throughput: '2,994 ops/sec',
+		duration: '167ms',
+		latency: 'P95 0.367ms',
+		mem: '15.22 KB/op',
+	},
+	{
+		name: 'Views · Multi-node Collect',
+		throughput: '2,239 ops/sec',
+		duration: '134ms',
+		latency: 'P95 0.487ms',
+		mem: '47.12 KB/op',
+	},
+];
+
+const confluence = [
+	{
+		name: 'Fan-Out → 5 Nodes',
+		throughput: '333,333 ops/sec',
+		duration: '3ms',
+		latency: 'P95 0.005ms',
+		mem: '14.23 KB/op',
+	},
+	{
+		name: 'Fan-Out + Result Collect',
+		throughput: '500,000 ops/sec',
+		duration: '1ms',
+		latency: 'P95 0.003ms',
+		mem: '14.55 KB/op',
+	},
+	{
+		name: 'Fan-In · Batch 10',
+		throughput: '250,000 ops/sec',
+		duration: '4ms',
+		latency: 'P95 0.006ms',
+		mem: '2.23 KB/op',
+	},
+	{
+		name: 'Fan-In · Batch 50',
+		throughput: '62,500 ops/sec',
+		duration: '8ms',
+		latency: 'P95 0.021ms',
+		mem: '19.65 KB/op',
+	},
+	{
+		name: 'Fan-In · Batch 100',
+		throughput: '28,571 ops/sec',
+		duration: '7ms',
+		latency: 'P95 0.041ms',
+		mem: '5.12 KB/op',
+	},
+];
+---
+
+<section id="happen" class="border-b border-[hsl(var(--border))]/70 bg-[hsl(var(--background))]">
+	<div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
+		<div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+			<div class="space-y-4">
+				<p class="text-xs font-semibold uppercase tracking-[0.25em] text-[hsl(var(--muted-foreground))]">
+					Happen Framework · Open source
+				</p>
+				<h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">
+					Guru runs on Happen: the two-primitive framework for agentic systems.
+				</h2>
+				<p class="max-w-2xl text-sm leading-relaxed text-[hsl(var(--muted-foreground))]">
+					Happen treats Nodes and Events as the only abstractions you need, so swarms look less
+					like black boxes and more like composable infra. Guru’s Kernel sits on top of this bus,
+					reusing the same governance, state, and observability primitives you can adopt in your
+					own stack.
+				</p>
+			</div>
+			<a
+				href="https://insert-name-here.gitbook.io/happen"
+				class="items-center justify-center rounded-full border border-[hsl(var(--border))] min-w-[170px] px-4  py-1.5 text-[11px] font-semibold text-[hsl(var(--foreground))] transition hover:border-[hsl(var(--primary))]/50"
+				target="_blank"
+				rel="noreferrer"
+			>
+				Read the Happen docs →
+			</a>
+		</div>
+
+		<div class="mt-10 grid gap-5 lg:grid-cols-3">
+			{overview.map((item) => (
+				<div class="rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))]/95 p-5">
+					<p class="text-sm font-semibold text-[hsl(var(--foreground))]">{item.title}</p>
+					<p class="mt-2 text-sm text-[hsl(var(--muted-foreground))]">{item.description}</p>
+				</div>
+			))}
+		</div>
+
+		<div class="mt-8 flex flex-wrap gap-3 text-[10px] text-[hsl(var(--muted-foreground))]">
+			<span class="rounded-full border border-[hsl(var(--border))] px-3 py-1 font-semibold text-[hsl(var(--foreground))]">
+				{meta.totalOperations}
+			</span>
+			<span class="rounded-full border border-[hsl(var(--border))] px-3 py-1">{meta.totalDuration}</span>
+			<span class="rounded-full border border-[hsl(var(--border))] px-3 py-1">{meta.nodeVersion}</span>
+			<span class="rounded-full border border-[hsl(var(--border))] px-3 py-1">{meta.platform}</span>
+		</div>
+
+		<ul class="mt-6 space-y-2 text-sm text-[hsl(var(--muted-foreground))]">
+			{summaryBullets.map((bullet) => (
+				<li class="flex gap-2">
+					<span class="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[hsl(var(--primary))]"></span>
+					<span>{bullet}</span>
+				</li>
+			))}
+		</ul>
+
+		<div class="mt-10 space-y-6">
+			<div>
+				<div class="mb-3 flex items-center justify-between flex-wrap gap-2">
+					<div>
+						<p class="text-xs font-semibold uppercase tracking-[0.3em] text-[hsl(var(--muted-foreground))]">
+							Event processing
+						</p>
+						<h3 class="text-lg font-semibold text-[hsl(var(--foreground))]">
+							Causality + zero-allocation paths stay sub-microsecond.
+						</h3>
+					</div>
+					<span class="rounded-full border border-[hsl(var(--border))] px-3 py-1 text-[10px] text-[hsl(var(--muted-foreground))]">
+						NATS-connected · GC exposed
+					</span>
+				</div>
+				<div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+					{eventProcessing.map((bench) => (
+						<div class="rounded-2xl border border-[hsl(var(--border))]/80 bg-[hsl(var(--background))] p-4">
+							<p class="text-sm font-semibold text-[hsl(var(--foreground))]">{bench.name}</p>
+							<div class="mt-3 space-y-1 text-[11px] text-[hsl(var(--muted-foreground))]">
+								<p><span class="font-semibold text-[hsl(var(--foreground))]">Throughput:</span> {bench.throughput}</p>
+								<p><span class="font-semibold text-[hsl(var(--foreground))]">Duration:</span> {bench.duration}</p>
+								<p><span class="font-semibold text-[hsl(var(--foreground))]">Latency:</span> {bench.latency}</p>
+								<p><span class="font-semibold text-[hsl(var(--foreground))]">Memory:</span> {bench.mem}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+
+			<div>
+				<div class="mb-3">
+					<p class="text-xs font-semibold uppercase tracking-[0.3em] text-[hsl(var(--muted-foreground))]">
+						State & Views
+					</p>
+					<h3 class="text-lg font-semibold text-[hsl(var(--foreground))]">
+						Shadow state stays sub-millisecond even with transforms.
+					</h3>
+				</div>
+				<div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+					{stateAndViews.map((bench) => (
+						<div class="rounded-2xl border border-[hsl(var(--border))]/80 bg-[hsl(var(--background))] p-4">
+							<p class="text-sm font-semibold text-[hsl(var(--foreground))]">{bench.name}</p>
+							<div class="mt-3 space-y-1 text-[11px] text-[hsl(var(--muted-foreground))]">
+								<p><span class="font-semibold text-[hsl(var(--foreground))]">Throughput:</span> {bench.throughput}</p>
+								<p><span class="font-semibold text-[hsl(var(--foreground))]">Duration:</span> {bench.duration}</p>
+								<p><span class="font-semibold text-[hsl(var(--foreground))]">Latency:</span> {bench.latency}</p>
+								<p><span class="font-semibold text-[hsl(var(--foreground))]">Memory:</span> {bench.mem}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+
+			<div>
+				<div class="mb-3">
+					<p class="text-xs font-semibold uppercase tracking-[0.3em] text-[hsl(var(--muted-foreground))]">
+						Confluence · Fan-out / fan-in
+					</p>
+					<h3 class="text-lg font-semibold text-[hsl(var(--foreground))]">
+						Swarms burst to 500k tool ops/sec with microsecond fan-in.
+					</h3>
+				</div>
+				<div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+					{confluence.map((bench) => (
+						<div class="rounded-2xl border border-[hsl(var(--border))]/80 bg-[hsl(var(--background))] p-4">
+							<p class="text-sm font-semibold text-[hsl(var(--foreground))]">{bench.name}</p>
+							<div class="mt-3 space-y-1 text-[11px] text-[hsl(var(--muted-foreground))]">
+								<p><span class="font-semibold text-[hsl(var(--foreground))]">Throughput:</span> {bench.throughput}</p>
+								<p><span class="font-semibold text-[hsl(var(--foreground))]">Duration:</span> {bench.duration}</p>
+								<p><span class="font-semibold text-[hsl(var(--foreground))]">Latency:</span> {bench.latency}</p>
+								<p><span class="font-semibold text-[hsl(var(--foreground))]">Memory:</span> {bench.mem}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+

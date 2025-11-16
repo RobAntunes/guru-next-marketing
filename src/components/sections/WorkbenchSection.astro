@@ -1,0 +1,125 @@
+---
+const toolSnippet = String.raw`import { logs, fs, alerts } from "guru:wrappers";
+
+export async function main(incidentId: string) {
+  const window = await logs.query({
+    incidentId,
+    range: "15m",
+    services: ["payments-api", "limits-service"],
+  });
+
+  const anomalies = analyze(window);
+
+  await fs.writeShadow("playbooks/incidents/7429.md", render(anomalies));
+
+  return alerts.suggestRunbook(incidentId, {
+    path: "playbooks/incidents/7429.md",
+    mode: "shadow",
+  });
+}`;
+---
+
+<section id="workbench" class="border-b border-[hsl(var(--border))]/70 bg-[hsl(var(--background))]">
+	<div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
+		<div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+			<div class="space-y-3">
+				<p class="text-xs font-semibold uppercase tracking-[0.25em] text-[hsl(var(--muted-foreground))]">
+					Dynamic runtime · Workbench
+				</p>
+				<h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">
+					Workbench lets agents build tools under supervision.
+				</h2>
+				<p class="max-w-2xl text-sm leading-relaxed text-[hsl(var(--muted-foreground))]">
+					Agents often need bespoke scripts to finish a mission. Workbench gives them a governed sandbox that writes to `.guru/tmp/`, spawns a new
+					Happen node with Safe Node liners, and tears it down automatically. Operators review diffs, promote useful tools, or discard them.
+				</p>
+			</div>
+			<a
+				href="#cta"
+				class="inline-flex items-center justify-center rounded-full border border-[hsl(var(--border))] px-4 py-1.5 text-[11px] font-semibold text-[hsl(var(--foreground))] transition hover:border-[hsl(var(--primary))]/50"
+			>
+				View reference flow
+			</a>
+		</div>
+
+		<div class="mt-10 grid gap-6 lg:grid-cols-[1.2fr,0.8fr]">
+			<div class="rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))]/95 p-5 shadow-lg">
+				<div class="mb-3 flex items-center justify-between text-[11px] text-[hsl(var(--muted-foreground))]">
+					<span>Workbench session · incident-7429</span>
+					<span class="rounded-full bg-[hsl(var(--muted))] px-2 py-0.5 text-[9px]">sandbox · 37m</span>
+				</div>
+				<div class="grid gap-3 md:grid-cols-[1.15fr,0.85fr]">
+					<div class="rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--background))]">
+						<div class="flex items-center justify-between border-b border-[hsl(var(--border))]/70 px-3 py-1.5 text-[10px]">
+							<div class="flex items-center gap-2">
+								<span class="rounded bg-[hsl(var(--muted))] px-1.5 py-0.5 font-mono text-[hsl(var(--foreground))]">tool.ts</span>
+								<span class="text-[hsl(var(--muted-foreground))]">TypeScript · runtime=node</span>
+							</div>
+							<div class="flex items-center gap-1.5">
+								<span class="rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5 text-[9px]">draft</span>
+								<button class="rounded-full bg-[hsl(var(--primary))]/90 px-2 py-0.5 text-[9px] font-semibold text-[hsl(var(--primary-foreground))]">Run in sandbox</button>
+							</div>
+						</div>
+						<pre class="max-h-[320px] overflow-auto bg-[hsl(var(--background))] p-3 text-[10px] font-mono text-[hsl(var(--muted-foreground))]">
+{toolSnippet}
+						</pre>
+					</div>
+
+					<div class="space-y-3 text-[11px] text-[hsl(var(--muted-foreground))]">
+						<div class="rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-3">
+							<div class="mb-1 flex items-center justify-between text-[11px]">
+								<span class="font-semibold text-[hsl(var(--foreground))]">Last run</span>
+								<span class="rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5 text-[9px]">shadow-only</span>
+							</div>
+							<ul class="space-y-1.5">
+								<li>• 3 filesystem writes intercepted by Shadow Mode.</li>
+								<li>• 1 network call blocked by egress policy.</li>
+								<li>• Runbook artifact generated in sandbox.</li>
+							</ul>
+						</div>
+						<div class="rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-3">
+							<div class="mb-1 flex items-center justify-between text-[11px]">
+								<span class="font-semibold text-[hsl(var(--foreground))]">Promotion pipeline</span>
+								<span>draft → reviewed → approved</span>
+							</div>
+							<ol class="list-decimal space-y-1 pl-4">
+								<li>Agent authors tool and runs it in Workbench.</li>
+								<li>Operator reviews logic + liner stack.</li>
+								<li>Factory promotes tool into Wrappers bundle.</li>
+							</ol>
+						</div>
+						<div class="rounded-2xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] p-3">
+							<div class="mb-1 text-[11px] font-semibold text-[hsl(var(--foreground))]">Use Workbench when…</div>
+							<ul class="space-y-1.5">
+								<li>• you’d otherwise write a one-off script.</li>
+								<li>• agents need bespoke logic for a mission.</li>
+								<li>• you want experimentation without new APIs.</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="grid gap-4">
+				<div class="rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-5">
+					<h3 class="text-lg font-semibold text-[hsl(var(--foreground))]">Event API</h3>
+					<ul class="mt-3 space-y-2 text-sm text-[hsl(var(--muted-foreground))]">
+						<li><strong>Input:</strong> <code>agent.create_tool &#123; name, code, trigger &#125;</code></li>
+						<li><strong>Output:</strong> <code>system.tool_ready &#123; status &#125;</code></li>
+						<li>Workbench writes code into <code>.guru/tmp/</code> and mounts a Safe Node.</li>
+						<li>Telemetry + risk metadata routed back to the Inbox.</li>
+					</ul>
+				</div>
+				<div class="rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-5 text-sm text-[hsl(var(--muted-foreground))]">
+					<h3 class="text-lg font-semibold text-[hsl(var(--foreground))]">Why it matters</h3>
+					<ul class="mt-2 space-y-1.5">
+						<li>• Agents self-extend without compromising safety.</li>
+						<li>• Operators can promote the best tools into Wrappers.</li>
+						<li>• Reduces bespoke scripts by making experimentation native.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
