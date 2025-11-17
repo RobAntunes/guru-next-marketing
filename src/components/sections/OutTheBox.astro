@@ -1,0 +1,288 @@
+<section
+    id="architecture"
+    class="border-t border-[hsl(var(--border))]/70 bg-[hsl(var(--background))]"
+>
+    <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+        <div
+            class="flex flex-col justify-between gap-6 md:flex-row md:items-center"
+        >
+            <div class="space-y-2">
+                <h2
+                    class="text-xl font-semibold tracking-tight text-[hsl(var(--foreground))] sm:text-2xl"
+                >
+                    A harness that behaves like an operating system.
+                </h2>
+                <p
+                    class="max-w-2xl text-sm leading-relaxed text-[hsl(var(--muted-foreground))]"
+                >
+                    Guru sits between your models and your infrastructure.
+                    Agents never talk to the system directly; they talk to Guru,
+                    which speaks Happen. Every capability—Terminal, File System,
+                    Network—is mediated through Wrappers and guarded by Liners.
+                </p>
+            </div>
+            <div
+                class="flex items-center gap-2 rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--card))] px-3 py-1.5 text-[11px] text-[hsl(var(--muted-foreground))]"
+            >
+                <span class="h-1.5 w-1.5 rounded-full bg-[hsl(var(--primary))]"
+                ></span>
+                Event-native · Policy-first · Model-agnostic
+            </div>
+        </div>
+
+        <div class="mt-8 grid gap-6 lg:grid-cols-[1.4fr,1fr]">
+            <!-- Diagram -->
+            <div
+                class="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-4 sm:p-5"
+            >
+                <div class="mb-4 flex items-center justify-between text-xs">
+                    <span class="font-medium text-[hsl(var(--foreground))]"
+                        >Guru Architecture</span
+                    >
+                    <span class="text-[hsl(var(--muted-foreground))]"
+                        >Logical overview</span
+                    >
+                </div>
+
+                <div class="space-y-3 text-[11px]">
+                    <!-- Top: Clients and models -->
+                    <div class="flex flex-col gap-2">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span
+                                class="rounded-full bg-[hsl(var(--muted))] px-2 py-0.5 font-medium text-[hsl(var(--foreground))]"
+                                >Clients</span
+                            >
+                            <span
+                                class="rounded-full bg-[hsl(var(--background))] px-2 py-0.5 text-[hsl(var(--muted-foreground))]"
+                                >IDE · CLI · Web · CI</span
+                            >
+                        </div>
+
+                        <div
+                            class="flex items-center justify-between rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] px-3 py-2"
+                        >
+                            <div class="text-[hsl(var(--muted-foreground))]">
+                                <div
+                                    class="font-medium text-[hsl(var(--foreground))]"
+                                >
+                                    Model layer
+                                </div>
+                                <div>Frontier LLMs, local models, tools</div>
+                            </div>
+                            <div class="flex gap-1.5">
+                                <span
+                                    class="rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5"
+                                    >Frontier</span
+                                >
+                                <span
+                                    class="rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5"
+                                    >Open</span
+                                >
+                                <span
+                                    class="rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5"
+                                    >Custom</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Middle: Guru Harness / Happen -->
+                    <div
+                        class="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-3"
+                    >
+                        <div class="flex items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="rounded-md bg-[hsl(var(--card))] px-2 py-1 text-[10px] font-medium text-[hsl(var(--foreground))]"
+                                    >Guru Harness</span
+                                >
+                                <span
+                                    class="rounded-full bg-[hsl(var(--muted))] px-2 py-0.5 text-[9px] text-[hsl(var(--muted-foreground))]"
+                                    >Happen inside</span
+                                >
+                            </div>
+                            <span
+                                class="text-[9px] text-[hsl(var(--muted-foreground))]"
+                                >Event bus · Policy engine · Memory</span
+                            >
+                        </div>
+
+                        <div
+                            class="mt-3 grid gap-2 text-[10px] text-[hsl(var(--muted-foreground))] sm:grid-cols-3"
+                        >
+                            <div class="space-y-1">
+                                <div
+                                    class="font-medium text-[hsl(var(--foreground))]"
+                                >
+                                    Context plane
+                                </div>
+                                <ul class="space-y-0.5">
+                                    <li>
+                                        • Symbol graph &amp; code introspection
+                                    </li>
+                                    <li>• Prompt + template management</li>
+                                    <li>• Selective context routing</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-1">
+                                <div
+                                    class="font-medium text-[hsl(var(--foreground))]"
+                                >
+                                    Memory plane
+                                </div>
+                                <ul class="space-y-0.5">
+                                    <li>• Short, long, and user memory</li>
+                                    <li>• AI-native knowledge bases</li>
+                                    <li>• Feedback loops &amp; fine-tuning</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-1">
+                                <div
+                                    class="font-medium text-[hsl(var(--foreground))]"
+                                >
+                                    Control plane
+                                </div>
+                                <ul class="space-y-0.5">
+                                    <li>• Event routing and scheduling</li>
+                                    <li>• Policy evaluation via Liners</li>
+                                    <li>• Observability &amp; audit log</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom: System capabilities -->
+                    <div class="grid gap-3 md:grid-cols-3">
+                        <div
+                            class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-3"
+                        >
+                            <div
+                                class="mb-1.5 flex items-center justify-between text-[10px]"
+                            >
+                                <span
+                                    class="font-medium text-[hsl(var(--foreground))]"
+                                    >Wrappers</span
+                                >
+                                <span
+                                    class="rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5 text-[9px]"
+                                    >God Mode</span
+                                >
+                            </div>
+                            <p
+                                class="text-[10px] text-[hsl(var(--muted-foreground))]"
+                            >
+                                Safe, composable system calls exposing Terminal,
+                                File System, Network, and bespoke capabilities.
+                            </p>
+                        </div>
+                        <div
+                            class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-3"
+                        >
+                            <div
+                                class="mb-1.5 flex items-center justify-between text-[10px]"
+                            >
+                                <span
+                                    class="font-medium text-[hsl(var(--foreground))]"
+                                    >Liners</span
+                                >
+                                <span
+                                    class="rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5 text-[9px]"
+                                    >Middleware</span
+                                >
+                            </div>
+                            <p
+                                class="text-[10px] text-[hsl(var(--muted-foreground))]"
+                            >
+                                Composable guards that wrap every Wrapper
+                                invocation. Visualize, transform, or block
+                                actions in real time.
+                            </p>
+                        </div>
+                        <div
+                            class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-3"
+                        >
+                            <div
+                                class="mb-1.5 flex items-center justify-between text-[10px]"
+                            >
+                                <span
+                                    class="font-medium text-[hsl(var(--foreground))]"
+                                    >Workbench</span
+                                >
+                                <span
+                                    class="rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5 text-[9px]"
+                                    >Tool factory</span
+                                >
+                            </div>
+                            <p
+                                class="text-[10px] text-[hsl(var(--muted-foreground))]"
+                            >
+                                A factory surface where agents author, run, and
+                                discard temporary tools—within the safety
+                                envelope you define.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Use cases -->
+            <div
+                class="flex flex-col gap-4 rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-4 sm:p-5"
+            >
+                <div class="space-y-1.5">
+                    <h3
+                        class="text-sm font-medium tracking-tight text-[hsl(var(--foreground))]"
+                    >
+                        What Guru enables out of the box
+                    </h3>
+                    <p
+                        class="text-xs leading-relaxed text-[hsl(var(--muted-foreground))]"
+                    >
+                        Build autonomous systems that feel fearless to the AI
+                        and safe to the humans.
+                    </p>
+                </div>
+                <div
+                    class="space-y-3 text-xs text-[hsl(var(--muted-foreground))]"
+                >
+                    <div>
+                        <div
+                            class="mb-0.5 text-[11px] font-medium text-[hsl(var(--foreground))]"
+                        >
+                            Repository-scale refactors
+                        </div>
+                        <p>
+                            Let swarms plan, simulate, and execute refactors
+                            across large monorepos using Shadow Mode diffs and
+                            staged commits.
+                        </p>
+                    </div>
+                    <div>
+                        <div
+                            class="mb-0.5 text-[11px] font-medium text-[hsl(var(--foreground))]"
+                        >
+                            Incident-aware remediation
+                        </div>
+                        <p>
+                            Agents ingest logs, traces, and dashboards as a
+                            knowledge stream, propose patches via Workbench, and
+                            apply them through governed Wrappers.
+                        </p>
+                    </div>
+                    <div>
+                        <div
+                            class="mb-0.5 text-[11px] font-medium text-[hsl(var(--foreground))]"
+                        >
+                            Agent-native workflows
+                        </div>
+                        <p>
+                            Replace brittle scripts with event-native workflows:
+                            agents that self-assemble around deploys,
+                            migrations, and data hygiene tasks.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

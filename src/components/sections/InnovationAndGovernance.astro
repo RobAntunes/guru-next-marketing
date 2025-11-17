@@ -1,0 +1,159 @@
+<section id="governance" class="border-t border-[hsl(var(--border))]/70 bg-[hsl(var(--background))]">
+    <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+      <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div class="space-y-2">
+          <h2 class="text-xl font-semibold tracking-tight text-[hsl(var(--foreground))] sm:text-2xl">
+            Permissionless Innovation. Absolute Governance.
+          </h2>
+          <p class="max-w-2xl text-sm leading-relaxed text-[hsl(var(--muted-foreground))]">
+            Agents in Guru operate as if they have “God Mode” access to
+            your systems—because they do. But every capability is mediated
+            by Wrappers, and every Wrapper is wrapped in Liners you
+            control. The result: fearless autonomy within an uncompromising
+            safety envelope.
+          </p>
+        </div>
+        <div class="flex gap-3 text-[11px] text-[hsl(var(--muted-foreground))]">
+          <div class="flex items-center gap-1 rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--card))] px-2.5 py-1">
+            <span class="h-1.5 w-1.5 rounded-full bg-[hsl(var(--primary))]"></span>
+            Permissionless for agents
+          </div>
+          <div class="flex items-center gap-1 rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--card))] px-2.5 py-1">
+            <span class="h-1.5 w-1.5 rounded-full bg-[hsl(var(--foreground))]"></span>
+            Absolute governance for you
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 grid gap-6 lg:grid-cols-2">
+        <!-- Dual sliders illustration -->
+        <div class="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-4 sm:p-5">
+          <div class="mb-3 text-xs font-medium text-[hsl(var(--foreground))]">
+            Policy profiles
+          </div>
+          <div class="space-y-4 text-[11px] text-[hsl(var(--muted-foreground))]">
+            <div>
+              <div class="mb-1 flex items-center justify-between text-[11px]">
+                <span class="font-medium text-[hsl(var(--foreground))]">Sandbox</span>
+                <span>rapid experimentation</span>
+              </div>
+              <div class="space-y-2 rounded-lg bg-[hsl(var(--background))] p-3">
+                <div class="flex items-center justify-between gap-2">
+                  <span>File System</span>
+                  <div class="flex h-1.5 flex-1 overflow-hidden rounded-full">
+                    <div class="w-1/5 bg-[hsl(var(--accent))]"></div>
+                    <div class="flex-1 bg-[hsl(var(--muted))]"></div>
+                  </div>
+                  <span>shadow-only</span>
+                </div>
+                <div class="flex items-center justify-between gap-2">
+                  <span>Terminal</span>
+                  <div class="flex h-1.5 flex-1 overflow-hidden rounded-full">
+                    <div class="w-0 bg-[hsl(var(--accent))]"></div>
+                    <div class="flex-1 bg-[hsl(var(--muted))]"></div>
+                  </div>
+                  <span>disabled</span>
+                </div>
+                <div class="flex items-center justify-between gap-2">
+                  <span>Network</span>
+                  <div class="flex h-1.5 flex-1 overflow-hidden rounded-full">
+                    <div class="w-2/3 bg-[hsl(var(--accent))]"></div>
+                    <div class="flex-1 bg-[hsl(var(--muted))]"></div>
+                  </div>
+                  <span>egress allowlist</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="mb-1 flex items-center justify-between text-[11px]">
+                <span class="font-medium text-[hsl(var(--foreground))]">Production</span>
+                <span>controlled execution</span>
+              </div>
+              <div class="space-y-2 rounded-lg bg-[hsl(var(--background))] p-3">
+                <div class="flex items-center justify-between gap-2">
+                  <span>File System</span>
+                  <div class="flex h-1.5 flex-1 overflow-hidden rounded-full">
+                    <div class="w-1/3 bg-[hsl(var(--destructive))]/75"></div>
+                    <div class="flex-1 bg-[hsl(var(--muted))]"></div>
+                  </div>
+                  <span>PR-only</span>
+                </div>
+                <div class="flex items-center justify-between gap-2">
+                  <span>Terminal</span>
+                  <div class="flex h-1.5 flex-1 overflow-hidden rounded-full">
+                    <div class="w-1/4 bg-[hsl(var(--destructive))]/75"></div>
+                    <div class="flex-1 bg-[hsl(var(--muted))]"></div>
+                  </div>
+                  <span>observed</span>
+                </div>
+                <div class="flex items-center justify-between gap-2">
+                  <span>Network</span>
+                  <div class="flex h-1.5 flex-1 overflow-hidden rounded-full">
+                    <div class="w-1/2 bg-[hsl(var(--destructive))]/75"></div>
+                    <div class="flex-1 bg-[hsl(var(--muted))]"></div>
+                  </div>
+                  <span>policy-enforced</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Policy stack explanation -->
+        <div class="flex flex-col gap-4 rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-4 sm:p-5">
+          <div class="space-y-1.5">
+            <h3 class="text-sm font-medium tracking-tight text-[hsl(var(--foreground))]">
+              Liners: composable middleware for every action.
+            </h3>
+            <p class="text-xs leading-relaxed text-[hsl(var(--muted-foreground))]">
+              Liners are small, composable functions that intercept every
+              call through a Wrapper. Chain them per environment, per
+              team, or per repository to enforce different safety and
+              compliance policies without changing agent code.
+            </p>
+          </div>
+          <div class="space-y-2 rounded-lg bg-[hsl(var(--background))] p-3 text-[10px] text-[hsl(var(--muted-foreground))]">
+            <div class="font-medium text-[hsl(var(--foreground))]">
+              Example: prod filesystem liner stack
+            </div>
+            <ol class="list-decimal space-y-1 pl-4">
+              <li>Redact secrets from diffs before display.</li>
+              <li>Enforce path allowlist and repo ownership.</li>
+              <li>
+                Render Shadow Mode patch in the Guru UI for operator
+                approval.
+              </li>
+              <li>
+                On approval, apply patch via CI rather than direct write.
+              </li>
+            </ol>
+          </div>
+          <div class="space-y-2 text-xs">
+            <div class="flex items-center gap-2 text-[hsl(var(--muted-foreground))]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-[hsl(var(--primary))]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 3l7 4v5c0 4.5-3 8.5-7 9-4-0.5-7-4.5-7-9V7l7-4z" stroke-linejoin="round"></path>
+                <path d="M9.5 12.5L11 14l3.5-3.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <span>Every Wrapper call is logged, typed, and attributed to a
+                user and agent.</span>
+            </div>
+            <div class="flex items-center gap-2 text-[hsl(var(--muted-foreground))]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-[hsl(var(--primary))]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="4" width="18" height="14" rx="2"></rect>
+                <path d="M8 10h8M8 14h5" stroke-linecap="round"></path>
+              </svg>
+              <span>Policies are versioned, reviewable code — not scattered
+                config flags.</span>
+            </div>
+            <div class="flex items-center gap-2 text-[hsl(var(--muted-foreground))]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-[hsl(var(--primary))]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M5 12l5 5L20 7" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <span>Governance can tighten over time without breaking
+                existing agent workflows.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

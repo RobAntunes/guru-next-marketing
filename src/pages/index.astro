@@ -10,7 +10,11 @@ import SafetyStack from "../components/sections/SafetyStack.astro";
 import WorkbenchSection from "../components/sections/WorkbenchSection.astro";
 import StateGraphSection from "../components/sections/StateGraphSection.astro";
 import ImplementationRoadmap from "../components/sections/ImplementationRoadmap.astro";
+import PricingSection from "../components/sections/PricingSection.astro";
 import CTASection from "../components/sections/CTASection.astro";
+import OutTheBox from "../components/sections/OutTheBox.astro";
+import BeyondChat from "../components/sections/BeyondChat.astro";
+import InnovationAndGovernance from "../components/sections/InnovationAndGovernance.astro";
 ---
 
 <Layout
@@ -24,11 +28,14 @@ import CTASection from "../components/sections/CTASection.astro";
 		<main class="space-y-0">
 			<Hero />
 			<AsyncInterface />
-			<LayeredModel />
+			<OutTheBox />
+			<BeyondChat />
 			<HappenFramework />
 			<SafetyStack />
+			<InnovationAndGovernance />
 			<WorkbenchSection />
 			<StateGraphSection />
+			<PricingSection />
 			<CTASection />
 		</main>
 		<SiteFooter />
