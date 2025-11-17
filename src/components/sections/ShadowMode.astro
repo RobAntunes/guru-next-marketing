@@ -1,0 +1,277 @@
+<!-- Shadow Mode section -->
+<section
+  id="shadow-mode"
+  class="border-t border-[hsl(var(--border))]/70 bg-[hsl(var(--background))]"
+>
+  <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+    <div
+      class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between"
+    >
+      <div class="space-y-2">
+        <div
+          class="inline-flex items-center gap-2 rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--card))] px-2.5 py-1 text-[11px] text-[hsl(var(--muted-foreground))]"
+        >
+          <span
+            class="inline-flex h-1.5 w-1.5 rounded-full bg-[hsl(var(--destructive))]"
+          ></span>
+          Shadow Mode · Safety Catch
+        </div>
+        <h2
+          class="text-xl font-semibold tracking-tight text-[hsl(var(--foreground))] sm:text-2xl"
+        >
+          Run dangerous code safely.
+        </h2>
+        <p
+          class="max-w-2xl text-sm leading-relaxed text-[hsl(var(--muted-foreground))]"
+        >
+          Shadow Mode is the safety catch for your AI agents. It lets you grant
+          “God Mode” privileges—Terminal, File System writes, API keys—while
+          Guru holds a glass wall between agents and reality. The agent thinks
+          it executed; you decide what actually lands.
+        </p>
+        <p class="text-xs text-[hsl(var(--muted-foreground))]">
+          Tagline · <span class="font-medium text-[hsl(var(--foreground))]"
+            >The only agent harness with a built-in kill switch.</span
+          >
+        </p>
+      </div>
+      <div
+        class="mt-2 flex items-center gap-2 text-[11px] text-[hsl(var(--muted-foreground))] md:mt-0"
+      >
+        <div
+          class="flex items-center gap-1 rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--card))] px-2.5 py-1"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-3.5 w-3.5 text-[hsl(var(--primary))]"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <rect x="3" y="7" width="18" height="10" rx="2"></rect>
+            <path d="M9 17v1.5a3 3 0 0 0 6 0V17" stroke-linecap="round"></path>
+          </svg>
+          Human in the loop
+        </div>
+        <div
+          class="flex items-center gap-1 rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--card))] px-2.5 py-1"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-3.5 w-3.5 text-[hsl(var(--foreground))]"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <circle cx="12" cy="12" r="8"></circle>
+            <path d="M5 12h14" stroke-linecap="round"></path>
+          </svg>
+          Instant kill switch
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 grid gap-6 lg:grid-cols-[1.25fr,1fr]">
+      <!-- Shadow Mode console -->
+      <div
+        class="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-4 sm:p-5"
+      >
+        <div class="mb-3 flex items-center justify-between text-[11px]">
+          <span class="font-medium text-[hsl(var(--foreground))]"
+            >Shadow execution console</span
+          >
+          <span
+            class="rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5 text-[9px] text-[hsl(var(--muted-foreground))]"
+            >Agent believes: live</span
+          >
+        </div>
+
+        <div class="grid gap-3 md:grid-cols-2">
+          <!-- Left: terminal -->
+          <div
+            class="flex flex-col gap-2 rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-3"
+          >
+            <div
+              class="flex items-center justify-between text-[10px] text-[hsl(var(--muted-foreground))]"
+            >
+              <span class="font-medium text-[hsl(var(--foreground))]"
+                >Shadow terminal</span
+              >
+              <span class="inline-flex items-center gap-1">
+                <span class="h-1.5 w-1.5 rounded-full bg-[hsl(var(--accent))]"
+                ></span>
+                intercepted
+              </span>
+            </div>
+            <div
+              class="rounded-md bg-[hsl(var(--card))] p-2 font-mono text-[10px] text-[hsl(var(--muted-foreground))]"
+            >
+              <div class="flex items-center justify-between">
+                <span class="text-[hsl(var(--foreground))]"
+                  >$ agent run deploy_migration</span
+                >
+                <span
+                  class="rounded-full bg-[hsl(var(--muted))] px-1 py-0.5 text-[8px]"
+                  >shadow</span
+                >
+              </div>
+              <div class="mt-1 text-[hsl(var(--muted-foreground))]">
+                ▸ planning migration graph…<br />
+                ▸ applying schema diff to shadow DB…<br />
+                ▸ running smoke tests…<br />
+                ▸ ready for human review.
+              </div>
+            </div>
+            <div
+              class="flex items-center justify-between text-[10px] text-[hsl(var(--muted-foreground))]"
+            >
+              <span
+                >Runtime: <span
+                  class="font-medium text-[hsl(var(--foreground))]"
+                  >shadow-container-17</span
+                ></span
+              >
+              <span
+                >Exit code: <span
+                  class="font-medium text-[hsl(var(--foreground))]"
+                  >0 (pretend)</span
+                ></span
+              >
+            </div>
+          </div>
+
+          <!-- Right: diff + controls -->
+          <div
+            class="flex flex-col gap-2 rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-3"
+          >
+            <div
+              class="flex items-center justify-between text-[10px] text-[hsl(var(--muted-foreground))]"
+            >
+              <span class="font-medium text-[hsl(var(--foreground))]"
+                >Shadow diff bundle</span
+              >
+              <span
+                class="rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5 text-[8px]"
+                >3 files · 1 script</span
+              >
+            </div>
+            <div
+              class="rounded-md bg-[hsl(var(--card))] p-2 font-mono text-[10px] text-[hsl(var(--muted-foreground))]"
+            >
+              <pre
+                class="max-h-28 overflow-auto"><code>+ db/migrations/2024_11_17_add_safeguard.sql
++ src/payments/limits.ts
++ scripts/rollback_safeguard.sh
+
+@@ src/payments/limits.ts @@
++ enforceSwarmLimit(100)
+</code></pre>
+            </div>
+            <div
+              class="flex flex-wrap items-center justify-between gap-2 text-[10px] text-[hsl(var(--muted-foreground))]"
+            >
+              <div class="flex items-center gap-1">
+                <span class="h-1.5 w-1.5 rounded-full bg-[hsl(var(--primary))]"
+                ></span>
+                <span>Agent is waiting on decision.</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <span
+                  class="rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5 text-[8px]"
+                  >liner: prod-guardrail</span
+                >
+                <span
+                  class="rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5 text-[8px]"
+                  >mode: shadow</span
+                >
+              </div>
+            </div>
+            <div class="mt-1 flex flex-col gap-2 sm:flex-row">
+              <button
+                class="flex-1 rounded-md border border-[hsl(var(--border))] px-2 py-1.5 text-[10px] font-medium text-[hsl(var(--muted-foreground))] hover:border-[hsl(var(--primary))]/40 hover:text-[hsl(var(--foreground))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--ring))]"
+              >
+                Kill swarm
+              </button>
+              <button
+                class="flex-1 rounded-md bg-[hsl(var(--primary))] px-2 py-1.5 text-[10px] font-medium text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary))]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--ring))]"
+              >
+                Apply safely to prod
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copy: how it works -->
+      <div
+        class="flex flex-col gap-4 rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-4 sm:p-5"
+      >
+        <div class="space-y-1.5">
+          <h3
+            class="text-sm font-medium tracking-tight text-[hsl(var(--foreground))]"
+          >
+            How Shadow Mode works
+          </h3>
+          <p
+            class="text-xs leading-relaxed text-[hsl(var(--muted-foreground))]"
+          >
+            Shadow Mode sits between Wrappers and the real world. Agents
+            interact with a high-fidelity mirror, while humans approve,
+            transform, or discard their changes.
+          </p>
+        </div>
+        <ol class="space-y-2 text-xs text-[hsl(var(--muted-foreground))]">
+          <li>
+            <span class="font-medium text-[hsl(var(--foreground))]"
+              >1. Intercept</span
+            > · Liners catch high-risk actions—file writes, terminal commands, network
+            calls—and route them into a shadow environment.
+          </li>
+          <li>
+            <span class="font-medium text-[hsl(var(--foreground))]"
+              >2. Simulate</span
+            > · Guru executes against mirrors (shadow repos, DBs, services) and captures
+            precise diffs, logs, and rollbacks.
+          </li>
+          <li>
+            <span class="font-medium text-[hsl(var(--foreground))]"
+              >3. Decide</span
+            > · Operators review bundles in one place and choose to promote, edit,
+            or kill with a single click.
+          </li>
+        </ol>
+
+        <div class="grid gap-2 text-[10px] text-[hsl(var(--muted-foreground))]">
+          <div
+            class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-2"
+          >
+            <div
+              class="mb-0.5 text-[11px] font-medium text-[hsl(var(--foreground))]"
+            >
+              Structured review queues
+            </div>
+            <p>
+              Group changes by environment, repo, or incident to keep human
+              review focused and fast.
+            </p>
+          </div>
+          <div
+            class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-2"
+          >
+            <div
+              class="mb-0.5 text-[11px] font-medium text-[hsl(var(--foreground))]"
+            >
+              Hard boundaries by default
+            </div>
+            <p>
+              No agent ever talks directly to production without going through a
+              Wrapper+Liner stack.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

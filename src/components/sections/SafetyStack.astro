@@ -23,7 +23,7 @@ const safetyCards = [
 	{
 		title: 'Safe Node Factory',
 		description:
-			'Wrappers never instantiate raw Happen nodes. The factory inspects requested capabilities, injects required liners, and returns a hardened node.',
+			'System Wrappers never instantiate raw Happen nodes. The factory inspects requested capabilities, injects required liners, and returns a hardened node.',
 		points: [
 			'`src/renderer/src/happen/node-factory.ts` defines enforcement.',
 			'Requests for fs or shell automatically add Shadow Mode.',
@@ -91,7 +91,7 @@ export function createSafeNode(node, capabilities) {
 {safeNodeSnippet}
 			</pre>
 			<p class="mt-2">
-				This is the guardrail that makes Workbench safe. Even if an agent authors code for a temporary tool, the factory injects the same liners you rely on for long-lived wrappers.
+				This is the guardrail that makes Workbench safe. Even if an agent authors code for a temporary tool, the factory injects the same liners you rely on for long-lived System Wrappers.
 			</p>
 		</div>
 	</div>

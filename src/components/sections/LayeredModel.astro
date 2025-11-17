@@ -22,11 +22,11 @@ const layers = [
 	},
 	{
 		layer: '3 · Tools',
-		component: 'Wrappers',
+		component: 'System Wrappers',
 		role: 'Capability',
 		points: [
 			'Expose fs, git, docker, and bespoke utilities as typed events.',
-			'Every wrapper is spawned through the Safe Node factory.',
+			'Every System Wrapper is spawned through the Safe Node factory.',
 			'Shadow Mode can transparently intercept destructive calls.',
 		],
 	},
@@ -35,7 +35,7 @@ const layers = [
 		component: 'Liners',
 		role: 'Control',
 		points: [
-			'Composable middleware functions around each wrapper call.',
+			'Composable middleware functions around each System Wrapper call.',
 			'Shadow Mode, Telepathy, Budget, Policy, and your custom liners.',
 			'Chains are versioned code, not scattered config flags.',
 		],
@@ -55,7 +55,7 @@ const layers = [
 				</h2>
 				<p class="max-w-2xl text-sm leading-relaxed text-[hsl(var(--muted-foreground))]">
 					Guru separates authority, transport, capability, and governance. Agents never touch your infrastructure directly; they live as events on the bus,
-					request capabilities through wrappers, and are shaped by liners before any action is executed.
+					request capabilities through System Wrappers, and are shaped by liners before any action is executed.
 				</p>
 			</div>
 			<div class="rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--card))] px-4 py-1.5 text-[11px] text-[hsl(var(--muted-foreground))]">

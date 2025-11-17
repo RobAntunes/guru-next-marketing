@@ -1,5 +1,5 @@
 ---
-const toolSnippet = String.raw`import { logs, fs, alerts } from "guru:wrappers";
+const toolSnippet = String.raw`import { logs, fs, alerts } from "guru:System Wrappers";
 
 export async function main(incidentId: string) {
   const window = await logs.query({
@@ -85,7 +85,7 @@ export async function main(incidentId: string) {
 							<ol class="list-decimal space-y-1 pl-4">
 								<li>Agent authors tool and runs it in Workbench.</li>
 								<li>Operator reviews logic + liner stack.</li>
-								<li>Factory promotes tool into Wrappers bundle.</li>
+								<li>Factory promotes tool into System Wrappers bundle.</li>
 							</ol>
 						</div>
 						<div class="rounded-2xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] p-3">
@@ -114,7 +114,7 @@ export async function main(incidentId: string) {
 					<h3 class="text-lg font-semibold text-[hsl(var(--foreground))]">Why it matters</h3>
 					<ul class="mt-2 space-y-1.5">
 						<li>• Agents self-extend without compromising safety.</li>
-						<li>• Operators can promote the best tools into Wrappers.</li>
+						<li>• Operators can promote the best tools into System Wrappers.</li>
 						<li>• Reduces bespoke scripts by making experimentation native.</li>
 					</ul>
 				</div>
