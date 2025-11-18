@@ -1,33 +1,33 @@
 ---
 const safetyCards = [
 	{
-		title: 'Shadow File System',
+		title: "Shadow File System",
 		description:
-			'A virtualization layer that stages create/modify/delete requests and calculates a deterministic risk score before anything touches disk.',
+			"A virtualization layer that stages create/modify/delete requests and calculates a deterministic risk score before anything touches disk.",
 		points: [
-			'`stageWrite(path, content)` and `stageDelete(path)` APIs.',
-			'PendingChange map drives the Shadow Panel UI.',
-			'Risk model highlights config, secret, or infra-sensitive files.',
+			"`stageWrite(path, content)` and `stageDelete(path)` APIs.",
+			"PendingChange map drives the Shadow Panel UI.",
+			"Risk model highlights config, secret, or infra-sensitive files.",
 		],
 	},
 	{
-		title: 'Liner Engine',
+		title: "Liner Engine",
 		description:
-			'Composable middleware (line()) that wraps every tool invocation. Liners decide whether work is staged, transformed, or halted.',
+			"Composable middleware that wraps every tool invocation. Liners decide whether work is staged, transformed, or halted.",
 		points: [
-			'withShadowMode intercepts filesystem events and stalls agents until approved.',
-			'withTelepathy streams inputs/outputs/latency into LanceDB.',
-			'withBudget + withPolicy enforce quotas and organization-specific scripts.',
+			"withShadowMode intercepts filesystem events and stalls agents until approved.",
+			"withTelepathy streams inputs/outputs/latency into LanceDB.",
+			"withBudget + withPolicy enforce quotas and organization-specific scripts.",
 		],
 	},
 	{
-		title: 'Safe Node Factory',
+		title: "Safe Node Factory",
 		description:
-			'System Wrappers never instantiate raw Happen nodes. The factory inspects requested capabilities, injects required liners, and returns a hardened node.',
+			"System Wrappers never instantiate raw Happen nodes. The factory inspects requested capabilities, injects required liners, and returns a hardened node.",
 		points: [
-			'`src/renderer/src/happen/node-factory.ts` defines enforcement.',
-			'Requests for fs or shell automatically add Shadow Mode.',
-			'Telemetry + policy liners can be required per environment.',
+			"`src/renderer/src/happen/node-factory.ts` defines enforcement.",
+			"Requests for fs or shell automatically add Shadow Mode.",
+			"Telemetry + policy liners can be required per environment.",
 		],
 	},
 ];
@@ -49,51 +49,111 @@ export function createSafeNode(node, capabilities) {
 }`;
 ---
 
-<section id="safety" class="border-b border-[hsl(var(--border))]/70 bg-[hsl(var(--background))]">
-	<div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
+<section
+	id="safety"
+	class="border-b border-[hsl(var(--border))]/70 bg-[hsl(var(--background))]"
+>
+	<div class="sa mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
 		<div class="space-y-4">
-			<p class="text-xs font-semibold uppercase tracking-[0.25em] text-[hsl(var(--muted-foreground))]">
+			<p
+				class="text-xs font-semibold uppercase tracking-[0.25em] text-[hsl(var(--muted-foreground))]"
+			>
 				Governance · Safety foundation
 			</p>
 			<h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">
 				The safety model is code, not vibes.
 			</h2>
-			<p class="max-w-3xl text-sm leading-relaxed text-[hsl(var(--muted-foreground))]">
-				Every event that reaches a Safe Node passes three gates: authentication (cryptographic origin), interface control (schema hashing),
-				and authorization (role-based). From there Liners decide what happens next—Shadow Mode to pause, Telepathy to log, Budget to meter, Policy
-				to enforce bespoke rules (“No deletions on Fridays”). Operators review staged work through the Shadow Panel and unblock swarms asynchronously.
+			<p
+				class="max-w-3xl text-sm leading-relaxed text-[hsl(var(--muted-foreground))]"
+			>
+				Every event that reaches a Safe Node passes three gates:
+				authentication (cryptographic origin), interface control (schema
+				hashing), and authorization (role-based). From there Liners
+				decide what happens next—Shadow Mode to pause, Telepathy to log,
+				Budget to meter, Policy to enforce bespoke rules (“No deletions
+				on Fridays”). Operators review staged work through the Shadow
+				Panel and unblock swarms asynchronously.
 			</p>
 		</div>
 
-		<div class="mt-10 grid gap-6 lg:grid-cols-3">
-			{ safetyCards.map((card) => (
-				<div class="hover-lift rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-5">
-					<h3 class="text-lg font-semibold text-[hsl(var(--foreground))]">{card.title}</h3>
-					<p class="mt-2 text-sm text-[hsl(var(--muted-foreground))]">{card.description}</p>
-					<ul class="mt-3 space-y-2 text-sm text-[hsl(var(--muted-foreground))]">
-						{card.points.map((point) => (
-							<li class="flex gap-2">
-								<span class="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[hsl(var(--primary))]"></span>
-								<span>{point}</span>
-							</li>
-						))}
-					</ul>
-				</div>
-			)) }
+		<div class="mt-10 grid items-start gap-6 lg:grid-cols-3" data-disclosure-group="safety">
+			{
+				safetyCards.map((card, index) => (
+					<div class="flex flex-col grow gap-4 rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-5 hover-lift lg:min-h-[210px]">
+						<div class="space-y-2">
+							<h3 class="text-lg font-semibold text-[hsl(var(--foreground))]">
+								{card.title}
+							</h3>
+							<p class="text-sm text-[hsl(var(--muted-foreground))]">
+								{card.description}
+							</p>
+						</div>
+						<details class="disclosure" open={index === 0}>
+							<summary>
+								<span class="flex items-center gap-1.5">
+									<span>View implementation details</span>
+									<span
+										class="disclosure-chevron"
+										aria-hidden="true"
+									>
+										⌄
+									</span>
+								</span>
+								<span class="text-[9px] uppercase tracking-wide text-[hsl(var(--muted-foreground))]">
+									{card.points.length} notes
+								</span>
+							</summary>
+							<div class="disclosure-body">
+								<ul class="mt-3 space-y-2 text-sm text-[hsl(var(--muted-foreground))]">
+									{card.points.map((point) => (
+										<li class="flex gap-2">
+											<span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[hsl(var(--primary))]" />
+											<span>{point}</span>
+										</li>
+									))}
+								</ul>
+							</div>
+						</details>
+					</div>
+				))
+			}
 		</div>
 
-		<div class="mt-8 rounded-3xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))]/80 p-5 text-[11px] text-[hsl(var(--muted-foreground))]">
-			<div class="mb-2 flex items-center justify-between text-[11px] font-medium text-[hsl(var(--foreground))]">
+		<div
+			class="mt-8 rounded-3xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))]/80 p-5 text-[11px] text-[hsl(var(--muted-foreground))]"
+		>
+			<div
+				class="mb-2 flex items-center justify-between text-[11px] font-medium text-[hsl(var(--foreground))]"
+			>
 				<span>Safe Node factory (pseudo)</span>
-				<span class="rounded-full bg-[hsl(var(--muted))] px-2 py-0.5 text-[9px] uppercase tracking-wide">never skip liners</span>
+				<span
+					class="rounded-full bg-[hsl(var(--muted))] px-2 py-0.5 text-[9px] uppercase tracking-wide"
+					>never skip liners</span
+				>
 			</div>
-			<pre class="overflow-auto rounded-2xl bg-[hsl(var(--background))] p-3 text-[10px] text-[hsl(var(--muted-foreground))]">
+			<pre
+				class="overflow-auto rounded-2xl bg-[hsl(var(--background))] p-3 text-[10px] text-[hsl(var(--muted-foreground))]">
 {safeNodeSnippet}
 			</pre>
 			<p class="mt-2">
-				This is the guardrail that makes Workbench safe. Even if an agent authors code for a temporary tool, the factory injects the same liners you rely on for long-lived System Wrappers.
+				This is the guardrail that makes Workbench safe. Even if an
+				agent authors code for a temporary tool, the factory injects the
+				same liners you rely on for long-lived System Wrappers.
 			</p>
 		</div>
 	</div>
-</section>
 
+	<script type="module" is:inline>
+		const group = document.querySelectorAll('[data-disclosure-group="safety"] details.disclosure');
+		group.forEach((detail) => {
+			detail.addEventListener('toggle', () => {
+				if (!detail.open) return;
+				group.forEach((other) => {
+					if (other !== detail) {
+						other.open = false;
+					}
+				});
+			});
+		});
+	</script>
+</section>

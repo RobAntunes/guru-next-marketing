@@ -9,7 +9,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="en" class="bg-[hsl(var(--background))]">
+<html lang="en" class="bg-[hsl(var(--background))] no-js">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -28,7 +28,42 @@ const {
 	<body
 		class="min-h-screen bg-[hsl(var(--background))] text-[hsl(var(--foreground))] antialiased"
 	>
+		<script is:inline>
+			// Switch from no-js to js as soon as possible so CSS can target JS-capable browsers
+			document.documentElement.classList.remove('no-js');
+			document.documentElement.classList.add('js');
+		</script>
 		<Analytics />
 		<slot />
+		<script is:inline>
+			// Guard for safety in environments where window is not available
+			if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+				const observer = new IntersectionObserver(
+					(entries) => {
+						for (const entry of entries) {
+							if (entry.isIntersecting) {
+								entry.target.classList.add('sa--visible');
+								observer.unobserve(entry.target);
+							}
+						}
+					},
+					{ threshold: 0.12 }
+				);
+
+				window.addEventListener('DOMContentLoaded', () => {
+					// Use standard DOM APIs here; no TypeScript generics so this runs in the browser
+					Array.from(document.querySelectorAll('.sa')).forEach((el) => {
+						observer.observe(el);
+					});
+				});
+			} else if (typeof window !== 'undefined') {
+				// Fallback: if IntersectionObserver is not supported, just reveal all sections
+				window.addEventListener('DOMContentLoaded', () => {
+					Array.from(document.querySelectorAll('.sa')).forEach((el) => {
+						el.classList.add('sa--visible');
+					});
+				});
+			}
+		</script>
 	</body>
 </html>

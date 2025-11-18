@@ -3,7 +3,7 @@
   id="shadow-mode"
   class="border-t border-[hsl(var(--border))]/70 bg-[hsl(var(--background))]"
 >
-  <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+  <div class="sa mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
     <div
       class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between"
     >
@@ -243,34 +243,45 @@
           </li>
         </ol>
 
-        <div class="grid gap-2 text-[10px] text-[hsl(var(--muted-foreground))]">
-          <div
-            class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-2"
-          >
+        <details class="disclosure mt-2">
+          <summary>
+            <span class="flex items-center gap-1.5">
+              <span>More about queues & boundaries</span>
+              <span class="disclosure-chevron" aria-hidden="true">⌄</span>
+            </span>
+            <span class="text-[9px] uppercase tracking-wide text-[hsl(var(--muted-foreground))]">
+              2 callouts
+            </span>
+          </summary>
+          <div class="disclosure-body mt-3 grid gap-2 text-[10px] text-[hsl(var(--muted-foreground))]">
             <div
-              class="mb-0.5 text-[11px] font-medium text-[hsl(var(--foreground))]"
+              class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-2"
             >
-              Structured review queues
+              <div
+                class="mb-0.5 text-[11px] font-medium text-[hsl(var(--foreground))]"
+              >
+                Structured review queues
+              </div>
+              <p>
+                Group changes by environment, repo, or incident to keep human
+                review focused and fast.
+              </p>
             </div>
-            <p>
-              Group changes by environment, repo, or incident to keep human
-              review focused and fast.
-            </p>
-          </div>
-          <div
-            class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-2"
-          >
             <div
-              class="mb-0.5 text-[11px] font-medium text-[hsl(var(--foreground))]"
+              class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-2"
             >
-              Hard boundaries by default
+              <div
+                class="mb-0.5 text-[11px] font-medium text-[hsl(var(--foreground))]"
+              >
+                Hard boundaries by default
+              </div>
+              <p>
+                No agent ever talks directly to production without going through a
+                Wrapper+Liner stack.
+              </p>
             </div>
-            <p>
-              No agent ever talks directly to production without going through a
-              Wrapper+Liner stack.
-            </p>
           </div>
-        </div>
+        </details>
       </div>
     </div>
   </div>

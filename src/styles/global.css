@@ -41,6 +41,42 @@ html {
 	scroll-behavior: smooth;
 }
 
+/* Scroll animations */
+/*
+ * Safe-by-default behavior:
+ * - Sections are visible by default.
+ * - Only when JS is enabled (.js on <html>) do we apply the fade/slide-in.
+ * This prevents "blank page" issues if the animation script ever fails.
+ */
+.sa {
+	opacity: 1;
+	transform: none;
+}
+
+.js .sa {
+	opacity: 0;
+	transform: translateY(12px);
+	transition: opacity 260ms ease-out, transform 260ms ease-out;
+	will-change: opacity, transform;
+}
+
+.js .sa--delay-1 {
+	transition-delay: 80ms;
+}
+
+.js .sa--delay-2 {
+	transition-delay: 140ms;
+}
+
+.js .sa--delay-3 {
+	transition-delay: 200ms;
+}
+
+.js .sa.sa--visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
 body {
 	min-height: 100vh;
 	background-color: hsl(var(--background));
@@ -121,6 +157,50 @@ body {
 	}
 }
 
+/* Hero intro animation */
+.hero-animate [data-hero-animate] {
+	opacity: 0;
+	transform: translateY(14px);
+	animation: heroFadeUp 460ms ease-out forwards;
+}
+
+.hero-animate [data-hero-animate="eyebrow"] {
+	animation-delay: 60ms;
+}
+
+.hero-animate [data-hero-animate="heading"] {
+	animation-delay: 120ms;
+}
+
+.hero-animate [data-hero-animate="cta"] {
+	animation-delay: 190ms;
+}
+
+.hero-animate [data-hero-animate="metrics"] {
+	animation-delay: 260ms;
+}
+
+.hero-animate [data-hero-animate="mock"] {
+	animation-delay: 180ms;
+	transform: translateY(18px) scale(0.97);
+	animation-name: heroMockIn;
+	animation-duration: 520ms;
+}
+
+@keyframes heroFadeUp {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes heroMockIn {
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
 /* Reusable hover lift for cards */
 .hover-lift {
 	transition: transform 180ms ease-out, box-shadow 180ms ease-out,
@@ -175,4 +255,67 @@ body {
 .nav-link-underline:focus-visible::after {
 	transform: scaleX(1);
 	opacity: 1;
+}
+
+/* Progressive disclosure component */
+.disclosure {
+	margin-top: 0.5rem;
+}
+
+.disclosure > summary {
+	list-style: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.5rem;
+	padding: 0.35rem 0.75rem;
+	border-radius: 999px;
+	font-size: 11px;
+	font-weight: 500;
+	color: hsl(var(--muted-foreground));
+	transition: background-color 150ms ease-out, color 150ms ease-out;
+}
+
+.disclosure > summary::-webkit-details-marker {
+	display: none;
+}
+
+.disclosure[open] > summary {
+	background-color: hsl(var(--muted));
+	color: hsl(var(--foreground));
+}
+
+.disclosure-chevron {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 1.1rem;
+	height: 1.1rem;
+	border-radius: 999px;
+	font-size: 0.85rem;
+	color: hsl(var(--muted-foreground));
+	transition: transform 160ms ease-out, color 160ms ease-out, background-color 160ms ease-out,
+		box-shadow 160ms ease-out;
+}
+
+.disclosure[open] .disclosure-chevron {
+	transform: rotate(180deg);
+	color: hsl(var(--foreground));
+	position: relative;
+	top: 1px;
+}
+
+.disclosure-body {
+	margin-top: 0.75rem;
+	padding-top: 0.5rem;
+	border-top: 1px dashed hsl(var(--border));
+	opacity: 0;
+	transform: translateY(-2px);
+	transition: opacity 150ms ease-out, transform 150ms ease-out;
+}
+
+.disclosure[open] .disclosure-body {
+	opacity: 1;
+	transform: translateY(0);
 }

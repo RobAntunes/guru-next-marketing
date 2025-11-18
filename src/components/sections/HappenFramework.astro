@@ -163,7 +163,7 @@ const confluence = [
 	id="happen"
 	class="border-b border-[hsl(var(--border))]/70 bg-[hsl(var(--background))]"
 >
-	<div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
+	<div class="sa mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
 		<div
 			class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between"
 		>
@@ -225,16 +225,29 @@ const confluence = [
 			>
 		</div>
 
-		<ul class="mt-6 space-y-2 text-sm text-[hsl(var(--muted-foreground))]">
-			{
-				summaryBullets.map((bullet) => (
-					<li class="flex gap-2">
-						<span class="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[hsl(var(--primary))]" />
-						<span>{bullet}</span>
-					</li>
-				))
-			}
-		</ul>
+		<details class="disclosure mt-5">
+			<summary>
+				<span class="flex items-center gap-1.5">
+					<span>View performance notes</span>
+					<span class="disclosure-chevron" aria-hidden="true">⌄</span>
+				</span>
+				<span class="text-[9px] uppercase tracking-wide text-[hsl(var(--muted-foreground))]">
+					{summaryBullets.length} highlights
+				</span>
+			</summary>
+			<div class="disclosure-body">
+				<ul class="mt-3 space-y-2 text-sm text-[hsl(var(--muted-foreground))]">
+					{
+						summaryBullets.map((bullet) => (
+							<li class="flex gap-2">
+								<span class="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[hsl(var(--primary))]" />
+								<span>{bullet}</span>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</details>
 
 		<!-- <div class="mt-10 space-y-6">
 			<div>
