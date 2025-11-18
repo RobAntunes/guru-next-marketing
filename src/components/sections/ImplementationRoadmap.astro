@@ -1,83 +1,99 @@
 ---
 const phases = [
 	{
-		name: 'Phase 1 · Safety foundation',
+		name: "Phase 1 · Safety foundation",
 		items: [
-			'Implement ShadowFileSystem service with staging + risk scoring.',
-			'Ship ShadowModePanel UI for approving staged writes/deletes.',
-			'Add IPC bridge so only the shadow system touches file:write/delete.',
+			"Implement LimboFileSystem service with staging + risk scoring.",
+			"Ship LimboModePanel UI for approving staged writes/deletes.",
+			"Add IPC bridge so only the shadow system touches file:write/delete.",
 		],
 	},
 	{
-		name: 'Phase 2 · Liner architecture',
+		name: "Phase 2 · Liner architecture",
 		items: [
-			'Build the liner composition utility (`line()` + middleware typing).',
-			'Package canonical liners: withShadowMode, withTelepathy, withBudget, withPolicy.',
-			'Finalize createSafeNode factory so System Wrappers automatically receive liners.',
+			"Build the liner composition utility (`line()` + middleware typing).",
+			"Package canonical liners: withLimboMode, withTelepathy, withBudget, withPolicy.",
+			"Finalize createSafeNode factory so System Wrappers automatically receive liners.",
 		],
 	},
 	{
-		name: 'Phase 3 · Dynamic runtime',
+		name: "Phase 3 · Dynamic runtime",
 		items: [
-			'Initialize the Happen runtime inside the Electron renderer.',
-			'Implement WorkbenchNode to compile + sandbox new tools.',
-			'Create a generic CommandNode System Wrapper for system binaries.',
+			"Initialize the Happen runtime inside the Electron renderer.",
+			"Implement WorkbenchNode to compile + sandbox new tools.",
+			"Create a generic CommandNode System Wrapper for system binaries.",
 		],
 	},
 	{
-		name: 'Phase 4 · State graph',
+		name: "Phase 4 · State graph",
 		items: [
-			'Extend ContextGraphService with conversation nodes.',
-			'Serialize only active nodes into the LLM prompt.',
-			'Expose “Inbox item ⇄ Graph node” mapping for async reviews.',
+			"Extend ContextGraphService with conversation nodes.",
+			"Serialize only active nodes into the LLM prompt.",
+			"Expose “Inbox item ⇄ Graph node” mapping for async reviews.",
 		],
 	},
 ];
 ---
 
-<section class="border-b border-[hsl(var(--border))]/70 bg-[hsl(var(--background))]">
+<section
+	class="border-b border-[hsl(var(--border))]/70 bg-[hsl(var(--background))]"
+>
 	<div class="sa mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
 		<div class="space-y-4 text-center">
-			<p class="text-xs font-semibold uppercase tracking-[0.4em] text-[hsl(var(--muted-foreground))]">
+			<p
+				class="text-xs font-semibold uppercase tracking-[0.4em] text-[hsl(var(--muted-foreground))]"
+			>
 				Implementation checklist
 			</p>
 			<h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">
 				A phased plan to upgrade Guru into an Agentic Harness.
 			</h2>
-			<p class="mx-auto max-w-3xl text-sm leading-relaxed text-[hsl(var(--muted-foreground))]">
-				Each phase is shippable on its own. Teams often run Phases 1–2 in parallel (safety + liner architecture), introduce Workbench once governance is trusted,
-				and finish by wiring the state graph into their LLM prompts.
+			<p
+				class="mx-auto max-w-3xl text-sm leading-relaxed text-[hsl(var(--muted-foreground))]"
+			>
+				Each phase is shippable on its own. Teams often run Phases 1–2
+				in parallel (safety + liner architecture), introduce Workbench
+				once governance is trusted, and finish by wiring the state graph
+				into their LLM prompts.
 			</p>
 		</div>
 
 		<div class="mt-10 grid gap-5 lg:grid-cols-2">
-			{phases.map((phase, index) => (
-				<div class="rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))]/95 p-5">
-					<h3 class="text-lg font-semibold text-[hsl(var(--foreground))]">{phase.name}</h3>
-					<details class="disclosure mt-2" open={index === 0}>
-					<summary>
-						<span class="flex items-center gap-1.5">
-							<span>View phase checklist</span>
-							<span class="disclosure-chevron" aria-hidden="true">⌄</span>
-						</span>
-							<span class="text-[9px] uppercase tracking-wide text-[hsl(var(--muted-foreground))]">
-								{phase.items.length} steps
-							</span>
-						</summary>
-						<div class="disclosure-body">
-							<ul class="mt-3 space-y-2 text-sm text-[hsl(var(--muted-foreground))]">
-								{phase.items.map((item) => (
-									<li class="flex gap-2">
-										<span class="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[hsl(var(--primary))]"></span>
-										<span>{item}</span>
-									</li>
-								))}
-							</ul>
-						</div>
-					</details>
-				</div>
-			))}
+			{
+				phases.map((phase, index) => (
+					<div class="rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))]/95 p-5">
+						<h3 class="text-lg font-semibold text-[hsl(var(--foreground))]">
+							{phase.name}
+						</h3>
+						<details class="disclosure mt-2" open={index === 0}>
+							<summary>
+								<span class="flex items-center gap-1.5">
+									<span>View phase checklist</span>
+									<span
+										class="disclosure-chevron"
+										aria-hidden="true"
+									>
+										⌄
+									</span>
+								</span>
+								<span class="text-[9px] uppercase tracking-wide text-[hsl(var(--muted-foreground))]">
+									{phase.items.length} steps
+								</span>
+							</summary>
+							<div class="disclosure-body">
+								<ul class="mt-3 space-y-2 text-sm text-[hsl(var(--muted-foreground))]">
+									{phase.items.map((item) => (
+										<li class="flex gap-2">
+											<span class="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[hsl(var(--primary))]" />
+											<span>{item}</span>
+										</li>
+									))}
+								</ul>
+							</div>
+						</details>
+					</div>
+				))
+			}
 		</div>
 	</div>
 </section>
-

@@ -10,7 +10,7 @@ export async function main(incidentId: string) {
 
   const anomalies = analyze(window);
 
-  await fs.writeShadow("playbooks/incidents/7429.md", render(anomalies));
+  await fs.writeLimbo("playbooks/incidents/7429.md", render(anomalies));
 
   return alerts.suggestRunbook(incidentId, {
     path: "playbooks/incidents/7429.md",
@@ -194,7 +194,8 @@ export async function main(incidentId: string) {
 							<strong>Input:</strong>
 							<code
 								>agent.create_tool &#123; name, code, trigger
-								&#125;</code>
+								&#125;</code
+							>
 						</li>
 						<li>
 							<strong>Output:</strong>

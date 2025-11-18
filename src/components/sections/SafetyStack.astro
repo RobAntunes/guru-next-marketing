@@ -1,12 +1,12 @@
 ---
 const safetyCards = [
 	{
-		title: "Shadow File System",
+		title: "Limbo File System",
 		description:
 			"A virtualization layer that stages create/modify/delete requests and calculates a deterministic risk score before anything touches disk.",
 		points: [
 			"`stageWrite(path, content)` and `stageDelete(path)` APIs.",
-			"PendingChange map drives the Shadow Panel UI.",
+			"PendingChange map drives the Limbo Panel UI.",
 			"Risk model highlights config, secret, or infra-sensitive files.",
 		],
 	},
@@ -15,7 +15,7 @@ const safetyCards = [
 		description:
 			"Composable middleware that wraps every tool invocation. Liners decide whether work is staged, transformed, or halted.",
 		points: [
-			"withShadowMode intercepts filesystem events and stalls agents until approved.",
+			"withLimboMode intercepts filesystem events and stalls agents until approved.",
 			"withTelepathy streams inputs/outputs/latency into LanceDB.",
 			"withBudget + withPolicy enforce quotas and organization-specific scripts.",
 		],
@@ -32,13 +32,13 @@ const safetyCards = [
 	},
 ];
 
-const safeNodeSnippet = String.raw`import { withShadowMode, withTelepathy, withBudget, line } from './liners';
+const safeNodeSnippet = String.raw`import { withLimboMode, withTelepathy, withBudget, line } from './liners';
 
 export function createSafeNode(node, capabilities) {
   const required = [withTelepathy];
 
   if (capabilities.includes('fs') || capabilities.includes('shell')) {
-    required.push(withShadowMode);
+    required.push(withLimboMode);
   }
 
   if (capabilities.includes('tokens')) {
@@ -71,7 +71,7 @@ export function createSafeNode(node, capabilities) {
 				hashing), and authorization (role-based). From there Liners
 				decide what happens next—Limbo to pause, Telepathy to log,
 				Budget to meter, Policy to enforce bespoke rules (“No deletions
-				on Fridays”). Operators review staged work through the Shadow
+				on Fridays”). Operators review staged work through the Limbo
 				Panel and unblock swarms asynchronously.
 			</p>
 		</div>

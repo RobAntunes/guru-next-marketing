@@ -19,7 +19,7 @@ const stateGraphSnippet = String.raw`interface StateNode {
     {
       type: 'Task',
       status: 'Pending',
-      content: 'Stage diff via Shadow FS',
+      content: 'Stage diff via Limbo FS',
     },
     {
       type: 'Constraint',
@@ -30,40 +30,66 @@ const stateGraphSnippet = String.raw`interface StateNode {
 }`;
 ---
 
-<section id="state-graph" class="border-b border-[hsl(var(--border))]/70 bg-[hsl(var(--background))]">
+<section
+	id="state-graph"
+	class="border-b border-[hsl(var(--border))]/70 bg-[hsl(var(--background))]"
+>
 	<div class="sa mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
 		<div class="grid gap-8 lg:grid-cols-[1.1fr,0.9fr] lg:items-center">
 			<div class="space-y-4">
-				<p class="text-xs font-semibold uppercase tracking-[0.25em] text-[hsl(var(--muted-foreground))]">
+				<p
+					class="text-xs font-semibold uppercase tracking-[0.25em] text-[hsl(var(--muted-foreground))]"
+				>
 					Conversation state graph
 				</p>
 				<h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">
 					Replace linear chat history with a living graph.
 				</h2>
-				<p class="text-sm leading-relaxed text-[hsl(var(--muted-foreground))]">
-					Instead of dumping every token into the prompt, Guru streams only the active nodes from the conversation/state graph into the LLM.
-					Dead ends are marked as failed, pruned from the context window, and retained only for analytics. The result: cheaper prompts and smarter swarms.
+				<p
+					class="text-sm leading-relaxed text-[hsl(var(--muted-foreground))]"
+				>
+					Instead of dumping every token into the prompt, Guru streams
+					only the active nodes from the conversation/state graph into
+					the LLM. Dead ends are marked as failed, pruned from the
+					context window, and retained only for analytics. The result:
+					cheaper prompts and smarter swarms.
 				</p>
-				<ul class="space-y-2 text-sm text-[hsl(var(--muted-foreground))]">
+				<ul
+					class="space-y-2 text-sm text-[hsl(var(--muted-foreground))]"
+				>
 					<li>• Node types: Goal, Task, Fact, Constraint.</li>
-					<li>• Status lifecycle: Pending → Active → Completed/Failed.</li>
-					<li>• Graph drives both the async inbox and the prompts agents receive.</li>
+					<li>
+						• Status lifecycle: Pending → Active → Completed/Failed.
+					</li>
+					<li>
+						• Graph drives both the async inbox and the prompts
+						agents receive.
+					</li>
 				</ul>
 			</div>
 
-			<div class="rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))]/95 p-5 shadow-lg">
-				<div class="mb-3 flex items-center justify-between text-[11px] text-[hsl(var(--muted-foreground))]">
+			<div
+				class="rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))]/95 p-5 shadow-lg"
+			>
+				<div
+					class="mb-3 flex items-center justify-between text-[11px] text-[hsl(var(--muted-foreground))]"
+				>
 					<span>State graph · serialized excerpt</span>
-					<span class="rounded-full bg-[hsl(var(--muted))] px-2 py-0.5 text-[9px]">active nodes only</span>
+					<span
+						class="rounded-full bg-[hsl(var(--muted))] px-2 py-0.5 text-[9px]"
+						>active nodes only</span
+					>
 				</div>
-				<pre class="max-h-[320px] overflow-auto rounded-2xl bg-[hsl(var(--background))] p-4 text-[10px] text-[hsl(var(--muted-foreground))]">
+				<pre
+					class="max-h-[320px] overflow-auto rounded-2xl bg-[hsl(var(--background))] p-4 text-[10px] text-[hsl(var(--muted-foreground))]">
 {stateGraphSnippet}
 				</pre>
 				<p class="mt-3 text-[11px] text-[hsl(var(--muted-foreground))]">
-					The graph sits between humans and agents. Command Bar updates nodes, Inbox items are keyed to nodes, and swarms receive only the pieces marked Active.
+					The graph sits between humans and agents. Command Bar
+					updates nodes, Inbox items are keyed to nodes, and swarms
+					receive only the pieces marked Active.
 				</p>
 			</div>
 		</div>
 	</div>
 </section>
-
