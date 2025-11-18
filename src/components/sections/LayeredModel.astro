@@ -1,89 +1,108 @@
 ---
 const layers = [
 	{
-		layer: '1 · Kernel',
-		component: 'Guru (Electron)',
-		role: 'Authority',
+		layer: "1 · Kernel",
+		component: "Guru (Electron)",
+		role: "Authority",
 		points: [
-			'Stores user, project, and settings state.',
-			'Houses UI, command bar, and mission control.',
-			'Maintains the conversation/state graph.',
+			"Stores user, project, and settings state.",
+			"Houses UI, command bar, and mission control.",
+			"Maintains the conversation/state graph.",
 		],
 	},
 	{
-		layer: '2 · Bus',
-		component: 'Happen Framework',
-		role: 'Transport',
+		layer: "2 · Bus",
+		component: "Happen Framework",
+		role: "Transport",
 		points: [
-			'Agents are ephemeral events (agent.reasoning).',
-			'Nodes are spun up per event and torn down automatically.',
-			'Native gates for authentication, schema validation, and roles.',
+			"Agents are ephemeral events (agent.reasoning).",
+			"Nodes are spun up per event and torn down automatically.",
+			"Native gates for authentication, schema validation, and roles.",
 		],
 	},
 	{
-		layer: '3 · Tools',
-		component: 'System Wrappers',
-		role: 'Capability',
+		layer: "3 · Tools",
+		component: "System Wrappers",
+		role: "Capability",
 		points: [
-			'Expose fs, git, docker, and bespoke utilities as typed events.',
-			'Every System Wrapper is spawned through the Safe Node factory.',
-			'Shadow Mode can transparently intercept destructive calls.',
+			"Expose fs, git, docker, and bespoke utilities as typed events.",
+			"Every System Wrapper is spawned through the Safe Node factory.",
+			"Limbo can transparently intercept destructive calls.",
 		],
 	},
 	{
-		layer: '4 · Governance',
-		component: 'Liners',
-		role: 'Control',
+		layer: "4 · Governance",
+		component: "Liners",
+		role: "Control",
 		points: [
-			'Composable middleware functions around each System Wrapper call.',
-			'Shadow Mode, Telepathy, Budget, Policy, and your custom liners.',
-			'Chains are versioned code, not scattered config flags.',
+			"Composable middleware functions around each System Wrapper call.",
+			"Limbo, Telepathy, Budget, Policy, and your custom liners.",
+			"Chains are versioned code, not scattered config flags.",
 		],
 	},
 ];
 ---
 
-<section id="architecture" class="border-b border-[hsl(var(--border))]/70 bg-[hsl(var(--background))]">
+<section
+	id="architecture"
+	class="border-b border-[hsl(var(--border))]/70 bg-[hsl(var(--background))]"
+>
 	<div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
-		<div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+		<div
+			class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
+		>
 			<div class="space-y-3">
-				<p class="text-xs font-semibold uppercase tracking-[0.25em] text-[hsl(var(--muted-foreground))]">
+				<p
+					class="text-xs font-semibold uppercase tracking-[0.25em] text-[hsl(var(--muted-foreground))]"
+				>
 					System architecture
 				</p>
 				<h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">
 					Four layers that behave like an operating system.
 				</h2>
-				<p class="max-w-2xl text-sm leading-relaxed text-[hsl(var(--muted-foreground))]">
-					Guru separates authority, transport, capability, and governance. Agents never touch your infrastructure directly; they live as events on the bus,
-					request capabilities through System Wrappers, and are shaped by liners before any action is executed.
+				<p
+					class="max-w-2xl text-sm leading-relaxed text-[hsl(var(--muted-foreground))]"
+				>
+					Guru separates authority, transport, capability, and
+					governance. Agents never touch your infrastructure directly;
+					they live as events on the bus, request capabilities through
+					System Wrappers, and are shaped by liners before any action
+					is executed.
 				</p>
 			</div>
-			<div class="rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--card))] px-4 py-1.5 text-[11px] text-[hsl(var(--muted-foreground))]">
+			<div
+				class="rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--card))] px-4 py-1.5 text-[11px] text-[hsl(var(--muted-foreground))]"
+			>
 				Event-native · Policy-first · Model-agnostic
 			</div>
 		</div>
 
 		<div class="mt-10 grid gap-5 lg:grid-cols-2">
-			{layers.map((item) => (
-				<div class="rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))]/95 p-5">
-					<div class="flex flex-wrap items-center gap-3">
-						<span class="text-[11px] font-semibold uppercase tracking-wide text-[hsl(var(--muted-foreground))]">
-							{item.layer}
-						</span>
-						<span class="text-sm font-semibold text-[hsl(var(--foreground))]">{item.component}</span>
-						<span class="rounded-full bg-[hsl(var(--muted))] px-2 py-0.5 text-[10px] uppercase tracking-wide">{item.role}</span>
+			{
+				layers.map((item) => (
+					<div class="rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))]/95 p-5">
+						<div class="flex flex-wrap items-center gap-3">
+							<span class="text-[11px] font-semibold uppercase tracking-wide text-[hsl(var(--muted-foreground))]">
+								{item.layer}
+							</span>
+							<span class="text-sm font-semibold text-[hsl(var(--foreground))]">
+								{item.component}
+							</span>
+							<span class="rounded-full bg-[hsl(var(--muted))] px-2 py-0.5 text-[10px] uppercase tracking-wide">
+								{item.role}
+							</span>
+						</div>
+						<ul class="mt-4 space-y-2 text-sm text-[hsl(var(--muted-foreground))]">
+							{item.points.map((point) => (
+								<li class="flex gap-3">
+									<span class="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[hsl(var(--primary))]" />
+									<span>{point}</span>
+								</li>
+							))}
+						</ul>
 					</div>
-					<ul class="mt-4 space-y-2 text-sm text-[hsl(var(--muted-foreground))]">
-						{item.points.map((point) => (
-							<li class="flex gap-3">
-								<span class="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[hsl(var(--primary))]"></span>
-								<span>{point}</span>
-							</li>
-						))}
-					</ul>
-				</div>
-			))}
+				))
+			}
 		</div>
 	</div>
 </section>
-

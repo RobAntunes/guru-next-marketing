@@ -113,11 +113,9 @@ body {
 	content: '';
 	position: absolute;
 	inset: 0;
-	background-image: linear-gradient(
-			90deg,
+	background-image: linear-gradient(90deg,
 			rgba(20, 20, 20, 0.04) 1px,
-			transparent 1px
-		),
+			transparent 1px),
 		linear-gradient(0deg, rgba(20, 20, 20, 0.04) 1px, transparent 1px);
 	background-size: 3.5rem 3.5rem;
 	border-radius: inherit;
@@ -147,10 +145,12 @@ body {
 		transform: translateX(-50%) translateY(-14px) scale(0.96);
 		opacity: 0.78;
 	}
+
 	50% {
 		transform: translateX(-50%) translateY(0) scale(1);
 		opacity: 0.88;
 	}
+
 	100% {
 		transform: translateX(-50%) translateY(12px) scale(1.04);
 		opacity: 0.95;
@@ -262,7 +262,7 @@ body {
 	margin-top: 0.5rem;
 }
 
-.disclosure > summary {
+.disclosure>summary {
 	list-style: none;
 	cursor: pointer;
 	display: flex;
@@ -277,11 +277,11 @@ body {
 	transition: background-color 150ms ease-out, color 150ms ease-out;
 }
 
-.disclosure > summary::-webkit-details-marker {
+.disclosure>summary::-webkit-details-marker {
 	display: none;
 }
 
-.disclosure[open] > summary {
+.disclosure[open]>summary {
 	background-color: hsl(var(--muted));
 	color: hsl(var(--foreground));
 }
@@ -318,4 +318,110 @@ body {
 .disclosure[open] .disclosure-body {
 	opacity: 1;
 	transform: translateY(0);
+}
+
+/* -------------------------------------------------------------------------- */
+/*  New Animations & Micro-interactions                                       */
+/* -------------------------------------------------------------------------- */
+
+/* Grid Beam Animation */
+.grid-beam {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to bottom,
+			transparent,
+			hsl(var(--primary) / 0.0) 0%,
+			hsl(var(--primary) / 0.15) 40%,
+			hsl(var(--primary) / 0.15) 60%,
+			hsl(var(--primary) / 0.0) 100%);
+	transform: translateY(-100%);
+	animation: beamDrop 8s infinite linear;
+	pointer-events: none;
+	z-index: 0;
+}
+
+@keyframes beamDrop {
+	0% {
+		transform: translateY(-100%);
+	}
+
+	100% {
+		transform: translateY(100%);
+	}
+}
+
+/* Typing Effect Cursor */
+.typing-cursor::after {
+	content: '|';
+	animation: blink 1s step-start infinite;
+	color: hsl(var(--primary));
+	margin-left: 2px;
+}
+
+@keyframes blink {
+	50% {
+		opacity: 0;
+	}
+}
+
+/* Shimmer Effect for Skeletons/Loading */
+.shimmer {
+	position: relative;
+	overflow: hidden;
+}
+
+.shimmer::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	transform: translateX(-100%);
+	background-image: linear-gradient(90deg,
+			transparent 0,
+			hsl(var(--primary) / 0.1) 20%,
+			hsl(var(--primary) / 0.2) 60%,
+			transparent);
+	animation: shimmer 2s infinite;
+	pointer-events: none;
+}
+
+@keyframes shimmer {
+	100% {
+		transform: translateX(100%);
+	}
+}
+
+/* Staggered Animation Utilities */
+.stagger-1 {
+	animation-delay: 100ms;
+}
+
+.stagger-2 {
+	animation-delay: 200ms;
+}
+
+.stagger-3 {
+	animation-delay: 300ms;
+}
+
+.stagger-4 {
+	animation-delay: 400ms;
+}
+
+.stagger-5 {
+	animation-delay: 500ms;
+}
+
+/* Smooth fade-in for dynamic elements */
+.fade-in {
+	animation: fadeIn 0.3s ease-out forwards;
+	opacity: 0;
+}
+
+@keyframes fadeIn {
+	to {
+		opacity: 1;
+	}
 }

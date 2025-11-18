@@ -13,7 +13,7 @@ const overview = [
 	{
 		title: "Governance as code",
 		description:
-			"Liners wrap System Wrappers at runtime. Shadow Mode, Telepathy, Budget, Policy, and your custom rules are middleware functions that ship with the repo.",
+			"Liners wrap System Wrappers at runtime. Limbo, Telepathy, Budget, Policy, and your custom rules are middleware functions that ship with the repo.",
 	},
 ];
 
@@ -168,17 +168,21 @@ const confluence = [
 			class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between"
 		>
 			<div class="space-y-4">
-				<h2 class="text-2xl max-w-2xl font-semibold tracking-tight sm:text-3xl">
-					Guru runs on Happen: The two-primitive framework for agentic systems.
+				<h2
+					class="text-2xl max-w-2xl font-semibold tracking-tight sm:text-3xl"
+				>
+					Guru runs on Happen: The two-primitive framework for agentic
+					systems.
 				</h2>
 				<p
 					class="max-w-2xl text-sm leading-relaxed text-[hsl(var(--muted-foreground))]"
 				>
-					Happen is an open-source, event-driven framework developed by the Guru
-					team that treats Nodes and Events as the only abstractions you need,
-					so swarms look less like black boxes and more like composable infra.
-					The Guru Kernel sits on top of this bus, reusing the same governance,
-					state, and observability primitives you can adopt in your own stack.
+					Happen is an open-source, event-driven framework developed
+					by the Guru team that treats Nodes and Events as the only
+					abstractions you need, so swarms look less like black boxes
+					and more like composable infra. The Guru Kernel sits on top
+					of this bus, reusing the same governance, state, and
+					observability primitives you can adopt in your own stack.
 				</p>
 			</div>
 			<a
@@ -214,13 +218,16 @@ const confluence = [
 			>
 				{meta.totalOperations}
 			</span>
-			<span class="rounded-full border border-[hsl(var(--border))] px-3 py-1"
+			<span
+				class="rounded-full border border-[hsl(var(--border))] px-3 py-1"
 				>{meta.totalDuration}</span
 			>
-			<span class="rounded-full border border-[hsl(var(--border))] px-3 py-1"
+			<span
+				class="rounded-full border border-[hsl(var(--border))] px-3 py-1"
 				>{meta.nodeVersion}</span
 			>
-			<span class="rounded-full border border-[hsl(var(--border))] px-3 py-1"
+			<span
+				class="rounded-full border border-[hsl(var(--border))] px-3 py-1"
 				>{meta.platform}</span
 			>
 		</div>
@@ -231,12 +238,16 @@ const confluence = [
 					<span>View performance notes</span>
 					<span class="disclosure-chevron" aria-hidden="true">⌄</span>
 				</span>
-				<span class="text-[9px] uppercase tracking-wide text-[hsl(var(--muted-foreground))]">
+				<span
+					class="text-[9px] uppercase tracking-wide text-[hsl(var(--muted-foreground))]"
+				>
 					{summaryBullets.length} highlights
 				</span>
 			</summary>
 			<div class="disclosure-body">
-				<ul class="mt-3 space-y-2 text-sm text-[hsl(var(--muted-foreground))]">
+				<ul
+					class="mt-3 space-y-2 text-sm text-[hsl(var(--muted-foreground))]"
+				>
 					{
 						summaryBullets.map((bullet) => (
 							<li class="flex gap-2">
@@ -430,11 +441,12 @@ const confluence = [
 					<p
 						class="text-sm leading-relaxed text-[hsl(var(--muted-foreground))]"
 					>
-						Inside Guru, agents aren't long-lived processes. They are ephemeral
-						events in Happen: a framework that treats every thought, tool call,
-						and system action as a typed, observable event. This lets you design
-						infinite, bursty swarms without worrying about resource leaks or
-						runaway processes.
+						Inside Guru, agents aren't long-lived processes. They
+						are ephemeral events in Happen: a framework that treats
+						every thought, tool call, and system action as a typed,
+						observable event. This lets you design infinite, bursty
+						swarms without worrying about resource leaks or runaway
+						processes.
 					</p>
 					<ul
 						class="mt-2 grid gap-2 text-xs text-[hsl(var(--muted-foreground))] sm:grid-cols-2"
@@ -450,8 +462,8 @@ const confluence = [
 									Event-first execution
 								</div>
 								<p>
-									Every agent action is a discrete event with explicit inputs,
-									context, and outcomes.
+									Every agent action is a discrete event with
+									explicit inputs, context, and outcomes.
 								</p>
 							</div>
 						</li>
@@ -466,8 +478,9 @@ const confluence = [
 									Swarm orchestration
 								</div>
 								<p>
-									Happen routes events between agents, models, and tools,
-									building dynamic swarms on demand.
+									Happen routes events between agents, models,
+									and tools, building dynamic swarms on
+									demand.
 								</p>
 							</div>
 						</li>
@@ -482,8 +495,9 @@ const confluence = [
 									Backpressure and safety
 								</div>
 								<p>
-									Event budgets, concurrency limits, and policy gates stop
-									swarms from overwhelming systems.
+									Event budgets, concurrency limits, and
+									policy gates stop swarms from overwhelming
+									systems.
 								</p>
 							</div>
 						</li>
@@ -498,8 +512,9 @@ const confluence = [
 									Full lineage
 								</div>
 								<p>
-									Trace every artifact back through the event graph that
-									produced it, across models and tools.
+									Trace every artifact back through the event
+									graph that produced it, across models and
+									tools.
 								</p>
 							</div>
 						</li>
@@ -511,8 +526,11 @@ const confluence = [
 					<div
 						class="mt-4 rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-3 sm:mt-0 sm:p-4"
 					>
-						<div class="mb-2 flex items-center justify-between text-[11px]">
-							<span class="font-medium text-[hsl(var(--foreground))]"
+						<div
+							class="mb-2 flex items-center justify-between text-[11px]"
+						>
+							<span
+								class="font-medium text-[hsl(var(--foreground))]"
 								>Happen Event Stream</span
 							>
 							<span
@@ -528,7 +546,8 @@ const confluence = [
 									class="rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5 text-[9px]"
 									>00:00.213</span
 								>
-								<span class="font-medium text-[hsl(var(--foreground))]"
+								<span
+									class="font-medium text-[hsl(var(--foreground))]"
 									>event: swarm.plan</span
 								>
 								<span>agent=planner-1</span>
@@ -538,7 +557,8 @@ const confluence = [
 									class="rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5 text-[9px]"
 									>00:00.427</span
 								>
-								<span class="font-medium text-[hsl(var(--foreground))]"
+								<span
+									class="font-medium text-[hsl(var(--foreground))]"
 									>event: code.search.symbol</span
 								>
 								<span>agent=codebase-3</span>
@@ -548,7 +568,8 @@ const confluence = [
 									class="rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5 text-[9px]"
 									>00:00.731</span
 								>
-								<span class="font-medium text-[hsl(var(--foreground))]"
+								<span
+									class="font-medium text-[hsl(var(--foreground))]"
 									>event: workbench.spawn</span
 								>
 								<span>agent=workbench-2</span>
@@ -558,7 +579,8 @@ const confluence = [
 									class="rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5 text-[9px]"
 									>00:01.102</span
 								>
-								<span class="font-medium text-[hsl(var(--foreground))]"
+								<span
+									class="font-medium text-[hsl(var(--foreground))]"
 									>event: fs.write.shadow</span
 								>
 								<span>agent=runtime-7</span>
@@ -568,7 +590,8 @@ const confluence = [
 									class="rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5 text-[9px]"
 									>00:01.476</span
 								>
-								<span class="font-medium text-[hsl(var(--foreground))]"
+								<span
+									class="font-medium text-[hsl(var(--foreground))]"
 									>event: liner.review</span
 								>
 								<span>policy=prod-guardrail</span>
@@ -578,7 +601,8 @@ const confluence = [
 									class="rounded-full bg-[hsl(var(--muted))] px-1.5 py-0.5 text-[9px]"
 									>00:01.891</span
 								>
-								<span class="font-medium text-[hsl(var(--foreground))]"
+								<span
+									class="font-medium text-[hsl(var(--foreground))]"
 									>event: fs.write.commit</span
 								>
 								<span>status=approved</span>
@@ -597,8 +621,8 @@ const confluence = [
 									Event budgets
 								</div>
 								<p>
-									Attach budgets to users, repos, or environments to cap swarm
-									expansion.
+									Attach budgets to users, repos, or
+									environments to cap swarm expansion.
 								</p>
 							</div>
 							<div
@@ -610,8 +634,8 @@ const confluence = [
 									Concurrency lanes
 								</div>
 								<p>
-									Separate high-risk (runtime) from low-risk (analysis) events
-									into dedicated lanes.
+									Separate high-risk (runtime) from low-risk
+									(analysis) events into dedicated lanes.
 								</p>
 							</div>
 							<div
@@ -623,8 +647,9 @@ const confluence = [
 									Structured logs
 								</div>
 								<p>
-									Export the full event graph into your observability stack for
-									replay and forensics.
+									Export the full event graph into your
+									observability stack for replay and
+									forensics.
 								</p>
 							</div>
 						</div>

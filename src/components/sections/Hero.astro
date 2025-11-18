@@ -2,15 +2,18 @@
 const metrics = [
 	{
 		title: "Agent teams, any models",
-		description: "Compose swarms across frontier models and tools under one harness.",
+		description:
+			"Compose swarms across frontier models and tools under one harness.",
 	},
 	{
 		title: "Context as a first-class citizen",
-		description: "Symbol graphs, layered memory, and AI-native knowledge bases built-in.",
+		description:
+			"Symbol graphs, layered memory, and AI-native knowledge bases built-in.",
 	},
 	{
 		title: "Ephemeral events, infinite scale",
-		description: "Happen reimagines agents as events, enabling dynamic swarms.",
+		description:
+			"Happen reimagines agents as events, enabling dynamic swarms.",
 	},
 ];
 ---
@@ -19,11 +22,26 @@ const metrics = [
 	id="product"
 	class="relative overflow-hidden border-b border-[hsl(var(--border))]/70 bg-[hsl(var(--background))] hero-animate"
 >
-	<span class="halo -top-20 hidden lg:block animate-halo" aria-hidden="true"></span>
+	<!-- Dynamic Background -->
+	<div class="absolute inset-0 overflow-hidden pointer-events-none">
+		<div class="grid-beam w-[1px] h-[120%] left-[10%] opacity-20 delay-75">
+		</div>
+		<div class="grid-beam w-[1px] h-[120%] left-[30%] opacity-10 delay-300">
+		</div>
+		<div class="grid-beam w-[1px] h-[120%] left-[50%] opacity-20 delay-150">
+		</div>
+		<div class="grid-beam w-[1px] h-[120%] left-[70%] opacity-10 delay-500">
+		</div>
+		<div class="grid-beam w-[1px] h-[120%] left-[90%] opacity-20 delay-75">
+		</div>
+	</div>
+
+	<span class="halo -top-20 hidden lg:block animate-halo" aria-hidden="true"
+	></span>
 	<div
 		class="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr,0.95fr] lg:gap-16 lg:px-8 lg:py-24"
 	>
-		<div class="space-y-8">
+		<div class="space-y-8 relative z-10">
 			<div
 				data-hero-animate="eyebrow"
 				class="inline-flex items-center gap-2 rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--card))] px-3 py-1 text-[11px] font-medium text-[hsl(var(--muted-foreground))]"
@@ -56,7 +74,10 @@ const metrics = [
 				</p>
 			</div>
 
-			<div class="flex flex-col gap-3 sm:flex-row sm:items-center" data-hero-animate="cta">
+			<div
+				class="flex flex-col gap-3 sm:flex-row sm:items-center"
+				data-hero-animate="cta"
+			>
 				<div class="flex gap-2">
 					<a
 						href="#cta"
@@ -95,10 +116,10 @@ const metrics = [
 				class="grid gap-4 text-[11px] text-[hsl(var(--muted-foreground))] sm:grid-cols-3"
 				data-hero-animate="metrics"
 			>
-					{
-						metrics.map((metric) => (
-							<div class="hover-lift rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-4">
-							<div class="text-xl font-semibold text-[hsl(var(--foreground))]">
+				{
+					metrics.map((metric) => (
+						<div class="hover-lift rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-4 group cursor-default">
+							<div class="text-xl font-semibold text-[hsl(var(--foreground))] group-hover:text-[hsl(var(--primary))] transition-colors">
 								{metric.title}
 							</div>
 							<p>{metric.description}</p>
@@ -108,9 +129,9 @@ const metrics = [
 			</div>
 		</div>
 
-		<div class="space-y-4" data-hero-animate="mock">
+		<div class="space-y-4 relative z-10" data-hero-animate="mock">
 			<div
-				class="rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))]/95 p-4 shadow-2xl shadow-[rgba(0,0,0,0.15)]"
+				class="rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))]/95 p-4 shadow-2xl shadow-[rgba(0,0,0,0.15)] backdrop-blur-sm"
 			>
 				<div
 					class="mb-3 flex items-center justify-between text-[11px] text-[hsl(var(--muted-foreground))]"
@@ -128,11 +149,13 @@ const metrics = [
 							></span>
 						</span>
 						<span
-							class="rounded-full border border-[hsl(var(--border))] min-w-[120px] px-2 py-0.5 text-[10px]"
+							class="shimmer rounded-full border border-[hsl(var(--border))] min-w-[120px] px-2 py-0.5 text-[10px]"
 							>Mission Control · live</span
 						>
 					</div>
-					<span>Shadow Mode queue · 4 items</span>
+					<span
+						>Limbo queue · <span id="queue-count">4</span> items</span
+					>
 				</div>
 
 				<div class="grid gap-3 md:grid-cols-[1.1fr,0.9fr]">
@@ -148,18 +171,20 @@ const metrics = [
 								>⌘ + K</span
 							>
 						</div>
-						<ul class="space-y-1.5 font-mono">
+						<ul class="space-y-1.5 font-mono" id="command-list">
 							<li
-								class="flex items-center justify-between rounded-lg border border-[hsl(var(--border))] px-2 py-1"
+								class="flex items-center justify-between rounded-lg border border-[hsl(var(--border))] px-2 py-1 bg-[hsl(var(--card))]/50"
 							>
-								<span>agent.refactor repo://payments</span>
+								<span class="typing-cursor"
+									>agent.refactor repo://payments</span
+								>
 								<span
 									class="text-[9px] text-[hsl(var(--muted-foreground))]"
 									>swarm • live</span
 								>
 							</li>
 							<li
-								class="flex items-center justify-between rounded-lg border border-[hsl(var(--border))] px-2 py-1"
+								class="flex items-center justify-between rounded-lg border border-[hsl(var(--border))] px-2 py-1 opacity-60"
 							>
 								<span>agent.workbench spawn lint-fix</span>
 								<span
@@ -168,7 +193,7 @@ const metrics = [
 								>
 							</li>
 							<li
-								class="flex items-center justify-between rounded-lg border border-[hsl(var(--border))] px-2 py-1"
+								class="flex items-center justify-between rounded-lg border border-[hsl(var(--border))] px-2 py-1 opacity-60"
 							>
 								<span>agent.fs.diff stage</span>
 								<span
@@ -195,9 +220,10 @@ const metrics = [
 									>async</span
 								>
 							</div>
-							<ul class="space-y-1.5">
+							<ul class="space-y-1.5" id="inbox-list">
 								<li
-									class="flex items-center justify-between rounded-lg border border-[hsl(var(--border))]/80 px-2 py-1.5"
+									class="flex items-center justify-between rounded-lg border border-[hsl(var(--border))]/80 px-2 py-1.5 hover:bg-[hsl(var(--muted))]/30 transition-colors cursor-pointer group"
+									id="task-1"
 								>
 									<div>
 										<p
@@ -212,13 +238,14 @@ const metrics = [
 										>
 									</div>
 									<button
-										class="rounded-full bg-[hsl(var(--primary))]/15 px-2 py-1 text-[9px] font-semibold text-[hsl(var(--primary))]"
+										class="rounded-full bg-[hsl(var(--primary))]/15 px-2 py-1 text-[9px] font-semibold text-[hsl(var(--primary))] opacity-0 group-hover:opacity-100 transition-opacity"
+										onclick="approveTask(this)"
 									>
 										Approve
 									</button>
 								</li>
 								<li
-									class="flex items-center justify-between rounded-lg border border-[hsl(var(--border))]/80 px-2 py-1.5"
+									class="flex items-center justify-between rounded-lg border border-[hsl(var(--border))]/80 px-2 py-1.5 hover:bg-[hsl(var(--muted))]/30 transition-colors cursor-pointer group"
 								>
 									<div>
 										<p
@@ -233,7 +260,7 @@ const metrics = [
 										>
 									</div>
 									<button
-										class="rounded-full border border-[hsl(var(--border))] px-2 py-1 text-[9px] font-semibold"
+										class="rounded-full border border-[hsl(var(--border))] px-2 py-1 text-[9px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity"
 									>
 										Review
 									</button>
@@ -259,12 +286,12 @@ diff:
 + calculateRiskScore(change)</pre>
 							<div class="mt-2 flex gap-2 text-[9px]">
 								<button
-									class="flex-1 rounded-lg border border-[hsl(var(--border))] py-1 font-semibold text-[hsl(var(--muted-foreground))]"
+									class="flex-1 rounded-lg border border-[hsl(var(--border))] py-1 font-semibold text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--muted))] transition-colors"
 								>
 									Decline
 								</button>
 								<button
-									class="flex-1 rounded-lg bg-[hsl(var(--primary))] py-1 font-semibold text-[hsl(var(--primary-foreground))]"
+									class="flex-1 rounded-lg bg-[hsl(var(--primary))] py-1 font-semibold text-[hsl(var(--primary-foreground))] hover:opacity-90 transition-opacity"
 								>
 									Apply & execute
 								</button>
@@ -281,13 +308,16 @@ diff:
 					class="mb-2 flex items-center gap-2 text-[hsl(var(--muted-foreground))]"
 				>
 					<span
-						class="h-1.5 w-1.5 rounded-full bg-[hsl(var(--primary))]"
+						class="h-1.5 w-1.5 rounded-full bg-[hsl(var(--primary))] animate-pulse"
 					></span>
 					Real-time stream (Happen events)
 				</div>
-				<ul class="space-y-1.5 text-[hsl(var(--muted-foreground))]">
+				<ul
+					class="space-y-1.5 text-[hsl(var(--muted-foreground))]"
+					id="event-stream"
+				>
 					<li
-						class="flex items-center justify-between rounded-xl border border-[hsl(var(--border))]/70 px-3 py-1.5"
+						class="flex items-center justify-between rounded-xl border border-[hsl(var(--border))]/70 px-3 py-1.5 fade-in"
 					>
 						<span class="font-medium text-[hsl(var(--foreground))]"
 							>00:00.213 · event: swarm.plan</span
@@ -295,7 +325,7 @@ diff:
 						<span>agent=planner-1</span>
 					</li>
 					<li
-						class="flex items-center justify-between rounded-xl border border-[hsl(var(--border))]/70 px-3 py-1.5"
+						class="flex items-center justify-between rounded-xl border border-[hsl(var(--border))]/70 px-3 py-1.5 fade-in stagger-1"
 					>
 						<span class="font-medium text-[hsl(var(--foreground))]"
 							>00:00.731 · event: workbench.spawn</span
@@ -303,7 +333,7 @@ diff:
 						<span>agent=wb-2</span>
 					</li>
 					<li
-						class="flex items-center justify-between rounded-xl border border-[hsl(var(--border))]/70 px-3 py-1.5"
+						class="flex items-center justify-between rounded-xl border border-[hsl(var(--border))]/70 px-3 py-1.5 fade-in stagger-2"
 					>
 						<span class="font-medium text-[hsl(var(--foreground))]"
 							>00:01.476 · event: liner.review</span
@@ -315,3 +345,74 @@ diff:
 		</div>
 	</div>
 </section>
+
+<script is:inline>
+	// Simple typing effect for the command bar
+	const commands = [
+		"agent.refactor repo://payments",
+		"agent.test --coverage",
+		"swarm.deploy --prod",
+	];
+	let currentCommand = 0;
+	let charIndex = 0;
+	let isDeleting = false;
+	const typeSpeed = 100;
+	const deleteSpeed = 50;
+	const pauseTime = 2000;
+
+	function typeCommand() {
+		const commandElement = document.querySelector(".typing-cursor");
+		if (!commandElement) return;
+
+		const current = commands[currentCommand];
+
+		if (isDeleting) {
+			commandElement.textContent = current.substring(0, charIndex - 1);
+			charIndex--;
+		} else {
+			commandElement.textContent = current.substring(0, charIndex + 1);
+			charIndex++;
+		}
+
+		if (!isDeleting && charIndex === current.length) {
+			isDeleting = true;
+			setTimeout(typeCommand, pauseTime);
+		} else if (isDeleting && charIndex === 0) {
+			isDeleting = false;
+			currentCommand = (currentCommand + 1) % commands.length;
+			setTimeout(typeCommand, 500);
+		} else {
+			setTimeout(typeCommand, isDeleting ? deleteSpeed : typeSpeed);
+		}
+	}
+
+	// Start typing effect when visible
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				typeCommand();
+				observer.disconnect();
+			}
+		});
+	});
+
+	const commandBar = document.querySelector(".typing-cursor");
+	if (commandBar) observer.observe(commandBar);
+
+	// Mock interaction for "Approve" button
+	window.approveTask = function (btn) {
+		const item = btn.closest("li");
+		item.style.transform = "translateX(10px)";
+		item.style.opacity = "0";
+		setTimeout(() => {
+			item.remove();
+			// Update count
+			const countEl = document.getElementById("queue-count");
+			if (countEl)
+				countEl.textContent = Math.max(
+					0,
+					parseInt(countEl.textContent) - 1,
+				);
+		}, 300);
+	};
+</script>

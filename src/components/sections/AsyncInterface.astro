@@ -13,7 +13,7 @@ const pillars = [
 		title: "The Inbox",
 		subtitle: "Async review surface",
 		items: [
-			"Shadow Mode diffs, policy holds, clarifications.",
+			"Limbo diffs, policy holds, clarifications.",
 			"Each item opens into contextual thread + artifact.",
 			"Approve, discard, or leave guidance without pausing the swarm.",
 		],
@@ -59,7 +59,7 @@ const pillars = [
 				</p>
 				<div class="grid gap-4 sm:grid-cols-2">
 					<div
-						class="rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-4 text-[13px]"
+						class="hover-lift rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-4 text-[13px]"
 					>
 						<h3
 							class="text-sm font-semibold text-[hsl(var(--foreground))]"
@@ -73,7 +73,7 @@ const pillars = [
 						</p>
 					</div>
 					<div
-						class="rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-4 text-[13px]"
+						class="hover-lift rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-4 text-[13px]"
 					>
 						<h3
 							class="text-sm font-semibold text-[hsl(var(--foreground))]"
@@ -89,9 +89,9 @@ const pillars = [
 				</div>
 			</div>
 
-				<div
-					class="hover-lift space-y-4 rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))]/95 p-4 shadow-xl lg:p-6"
-				>
+			<div
+				class="hover-lift space-y-4 rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))]/95 p-4 shadow-xl lg:p-6"
+			>
 				<div
 					class="mb-2 text-[11px] font-medium text-[hsl(var(--muted-foreground))]"
 				>
@@ -100,7 +100,10 @@ const pillars = [
 				<div class="grid gap-4 lg:grid-cols-2">
 					{
 						pillars.map((pillar) => (
-							<div class="rounded-2xl border border-[hsl(var(--border))]/80 bg-[hsl(var(--background))] p-4 text-[11px]">
+							<div
+								class="rounded-2xl border border-[hsl(var(--border))]/80 bg-[hsl(var(--background))] p-4 text-[11px] transition-colors hover:border-[hsl(var(--primary))]/40"
+								data-stagger
+							>
 								<div class="mb-2">
 									<p class="text-sm font-semibold text-[hsl(var(--foreground))]">
 										{pillar.title}

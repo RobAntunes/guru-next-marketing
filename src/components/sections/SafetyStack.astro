@@ -26,7 +26,7 @@ const safetyCards = [
 			"System Wrappers never instantiate raw Happen nodes. The factory inspects requested capabilities, injects required liners, and returns a hardened node.",
 		points: [
 			"`src/renderer/src/happen/node-factory.ts` defines enforcement.",
-			"Requests for fs or shell automatically add Shadow Mode.",
+			"Requests for fs or shell automatically add Limbo.",
 			"Telemetry + policy liners can be required per environment.",
 		],
 	},
@@ -69,14 +69,17 @@ export function createSafeNode(node, capabilities) {
 				Every event that reaches a Safe Node passes three gates:
 				authentication (cryptographic origin), interface control (schema
 				hashing), and authorization (role-based). From there Liners
-				decide what happens next—Shadow Mode to pause, Telepathy to log,
+				decide what happens next—Limbo to pause, Telepathy to log,
 				Budget to meter, Policy to enforce bespoke rules (“No deletions
 				on Fridays”). Operators review staged work through the Shadow
 				Panel and unblock swarms asynchronously.
 			</p>
 		</div>
 
-		<div class="mt-10 grid items-start gap-6 lg:grid-cols-3" data-disclosure-group="safety">
+		<div
+			class="mt-10 grid items-start gap-6 lg:grid-cols-3"
+			data-disclosure-group="safety"
+		>
 			{
 				safetyCards.map((card, index) => (
 					<div class="flex flex-col grow gap-4 rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-5 hover-lift lg:min-h-[175px]">
@@ -118,9 +121,11 @@ export function createSafeNode(node, capabilities) {
 	</div>
 
 	<script type="module" is:inline>
-		const group = document.querySelectorAll('[data-disclosure-group="safety"] details.disclosure');
+		const group = document.querySelectorAll(
+			'[data-disclosure-group="safety"] details.disclosure',
+		);
 		group.forEach((detail) => {
-			detail.addEventListener('toggle', () => {
+			detail.addEventListener("toggle", () => {
 				if (!detail.open) return;
 				group.forEach((other) => {
 					if (other !== detail) {

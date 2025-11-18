@@ -30,38 +30,57 @@ const {
 	>
 		<script is:inline>
 			// Switch from no-js to js as soon as possible so CSS can target JS-capable browsers
-			document.documentElement.classList.remove('no-js');
-			document.documentElement.classList.add('js');
+			document.documentElement.classList.remove("no-js");
+			document.documentElement.classList.add("js");
 		</script>
 		<Analytics />
 		<slot />
 		<script is:inline>
 			// Guard for safety in environments where window is not available
-			if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+			if (
+				typeof window !== "undefined" &&
+				"IntersectionObserver" in window
+			) {
 				const observer = new IntersectionObserver(
 					(entries) => {
 						for (const entry of entries) {
 							if (entry.isIntersecting) {
-								entry.target.classList.add('sa--visible');
+								entry.target.classList.add("sa--visible");
+
+								// Trigger staggered children if any
+								const staggerChildren =
+									entry.target.querySelectorAll(
+										"[data-stagger]",
+									);
+								staggerChildren.forEach((child, index) => {
+									setTimeout(() => {
+										child.classList.add("sa--visible");
+									}, index * 100); // 100ms delay between each child
+								});
+
 								observer.unobserve(entry.target);
 							}
 						}
 					},
-					{ threshold: 0.12 }
+					{ threshold: 0.12 },
 				);
 
-				window.addEventListener('DOMContentLoaded', () => {
+				window.addEventListener("DOMContentLoaded", () => {
 					// Use standard DOM APIs here; no TypeScript generics so this runs in the browser
-					Array.from(document.querySelectorAll('.sa')).forEach((el) => {
-						observer.observe(el);
-					});
+					Array.from(document.querySelectorAll(".sa")).forEach(
+						(el) => {
+							observer.observe(el);
+						},
+					);
 				});
-			} else if (typeof window !== 'undefined') {
+			} else if (typeof window !== "undefined") {
 				// Fallback: if IntersectionObserver is not supported, just reveal all sections
-				window.addEventListener('DOMContentLoaded', () => {
-					Array.from(document.querySelectorAll('.sa')).forEach((el) => {
-						el.classList.add('sa--visible');
-					});
+				window.addEventListener("DOMContentLoaded", () => {
+					Array.from(document.querySelectorAll(".sa")).forEach(
+						(el) => {
+							el.classList.add("sa--visible");
+						},
+					);
 				});
 			}
 		</script>
