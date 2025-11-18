@@ -1,3 +1,7 @@
+---
+const joined = Astro.url.searchParams.get('joined') === 'waitlist';
+---
+
 <section
 	id="cta"
 	class="border-b border-[hsl(var(--border))]/70 bg-[hsl(var(--background))]"
@@ -107,7 +111,6 @@
 							Your information is never shared with third parties.
 						</p>
 					</form> -->
-					<div class="space-y-4">
 						<p
 							class="text-xs font-semibold uppercase tracking-[0.3em] text-[hsl(var(--muted-foreground))]"
 						>
@@ -155,6 +158,14 @@
 							</li>
 						</ul>
 					</div>
+
+					{joined && (
+						<div class="mt-4 mb-3 flex items-center gap-2 rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--card))] px-3 py-1.5 text-[11px] text-[hsl(var(--muted-foreground))]">
+							<span class="h-1.5 w-1.5 rounded-full bg-[hsl(var(--primary))]" />
+							<span>Thanks for joining the waitlist — you’re in.</span>
+						</div>
+					)}
+
 					<form class="space-y-4 text-sm my-4" method="post" action="/api/join-waitlist">
 						<div class="space-y-1">
 							<label

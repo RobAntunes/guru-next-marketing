@@ -25,7 +25,8 @@ export const POST: APIRoute = async ({ request }) => {
   return new Response(null, {
     status: 303,
     headers: {
-      Location: '/#cta',
+      // Redirect back to the homepage, preserving a flag so we can show a confirmation.
+      Location: '/?joined=waitlist#cta',
     },
   });
 };
