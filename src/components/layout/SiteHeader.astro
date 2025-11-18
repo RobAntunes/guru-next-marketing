@@ -33,7 +33,7 @@ const navLinks = [
 			{navLinks.map((link) => (
 				<a
 					href={link.href}
-					class="rounded-full px-3 py-1 transition-colors hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--foreground))]"
+					class="nav-link-underline rounded-full px-3 py-1 transition-colors hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--foreground))]"
 					>{link.label}</a
 				>
 			))}
@@ -46,9 +46,9 @@ const navLinks = [
 				>View docs</a
 			>
 			<a
-				href="#cta"
-				class="inline-flex items-center gap-1.5 rounded-full bg-[hsl(var(--primary))] px-4 py-1.5 text-[hsl(var(--primary-foreground))] shadow-sm shadow-[rgba(0,0,0,0.12)] transition hover:bg-[hsl(var(--primary))]/90"
-			>
+					href="#cta"
+					class="pressable inline-flex items-center gap-1.5 rounded-full bg-[hsl(var(--primary))] px-4 py-1.5 text-[hsl(var(--primary-foreground))] shadow-sm shadow-[rgba(0,0,0,0.12)] transition hover:bg-[hsl(var(--primary))]/90"
+				>
 				Join waitlist
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
 					<path d="M7 17L17 7M8 7H17V16" stroke-linecap="round" stroke-linejoin="round"></path>
